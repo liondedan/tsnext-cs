@@ -1,9 +1,12 @@
 import React from 'react'
 import styled from 'styled-components'
 
+
+const dog:number = 2;
+
 const Title = styled.h1`
   color: red;
   font-size: 50px;
 `
 
-export default () => <Title>My page</Title>
+export default () => <Title>My page {dog}</Title>
