@@ -4,9 +4,11 @@
   "scripts": {
     "dev": "next",
     "build": "next build",
+    "test": "jest",
     "start": "next start -p $PORT"
   },
   "dependencies": {
+    "jest": "^24.9.0",
     "next": "latest",
     "react": "16.8.6",
     "react-dom": "16.8.6",
