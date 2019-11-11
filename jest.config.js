@@ -8,7 +8,7 @@ module.exports = {
   transform: {
     "^.+\\.(ts|tsx)$": "ts-jest"
   },
-  testMatch: ["**/__tests__/*.(ts|tsx)"],
+  testMatch: ["**/*.test.(ts|tsx)"],
   setupFiles: ["./jest.setup.js"],
   testPathIgnorePatterns: ["./.next/", "./node_modules/"],
   globals: {
