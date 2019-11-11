@@ -8,6 +8,7 @@
     "start": "next start -p $PORT"
   },
   "dependencies": {
+    "babel-jest": "^24.9.0",
     "jest": "^24.9.0",
     "next": "latest",
     "react": "16.8.6",
