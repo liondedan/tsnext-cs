@@ -1,11 +1,13 @@
 const mongoose = require('mongoose')
-const db = mongoose.connect('mongodb://localhost:27017/Photos')
 const express = require('express');
 const next = require('next');
 const path = require('path');
 const url = require('url');
 const cluster = require('cluster');
 const numCPUs = require('os').cpus().length;
+
+import models, { connectDb } from './models';
+import routes from './routes';
 
 const dev = process.env.NODE_ENV !== 'production';
 const port = process.env.PORT || 3000;
@@ -30,6 +32,15 @@ if (!dev && cluster.isMaster) {
   nextApp.prepare()
     .then(() => {
       const server = express();
+      server.use(express.json());
+      server.use(express.urlencoded({ extended: true }));
+      server.use(async (req, res, next) => {
+        req.context = {
+            models,
+            me: await models.User.findByLogin('rwieruch'),
+          };
+          next();
+      });
 
       if (!dev) {
         // Enforce SSL & HSTS in production
@@ -45,34 +56,42 @@ if (!dev && cluster.isMaster) {
         });
       }
 
-      // Static files
-      // https://github.com/zeit/next.js/tree/4.2.3#user-content-static-file-serving-eg-images
-      server.use('/static', express.static(path.join(__dirname, 'static'), {
-        maxAge: dev ? '0' : '365d'
-      }));
+        server.use('/users', routes.user);
+        server.use('/messages', routes.message);
 
-      // Example server-side routing
-      server.get('/a', (req, res) => {
-        return nextApp.render(req, res, '/pip', req.query)
+      const eraseDatabaseOnSync = true;
+
+      connectDb().then(async () => {
+        if (eraseDatabaseOnSync) {
+
+        await Promise.all([
+            models.User.deleteMany({}),
+            models.Message.deleteMany({}),
+          ]);
+
+          createUsersWithMessages();
+        }
+
+
+
+        server.get('/', (req, res) => {
+          return nextApp.render(req, res, '/', req.query)
+        })
+
+        server.get('/api/a', (req, res) => {
+          res.setHeader('Content-Type', 'application/json');
+          res.end(JSON.stringify({ a: 1 }));
+        })
+
+        // Default catch-all renders Next app
+        server.get('*', (req, res) => {
+          // res.set({
+          //   'Cache-Control': 'public, max-age=3600'
+          // });
+          const parsedUrl = url.parse(req.url, true);
+          nextHandler(req, res, parsedUrl);
+        });
       })
-
-      // Example server-side routing
-      server.get('/b', (req, res) => {
-        return nextApp.render(req, res, '/a', req.query)
-      })
-
-      server.post('/cat', (req, res) => {
-        return res.send('cats and dos');
-      })
-
-      // Default catch-all renders Next app
-      server.get('*', (req, res) => {
-        // res.set({
-        //   'Cache-Control': 'public, max-age=3600'
-        // });
-        const parsedUrl = url.parse(req.url, true);
-        nextHandler(req, res, parsedUrl);
-      });
 
       server.listen(port, (err) => {
         if (err) throw err;
@@ -81,3 +100,28 @@ if (!dev && cluster.isMaster) {
     });
 }
 
+const createUsersWithMessages = async () => {
+  const user1 = new models.User({
+    username: 'rwieruch',
+  });
+  const user2 = new models.User({
+    username: 'ddavids',
+  });
+  const message1 = new models.Message({
+    text: 'Published the Road to learn React',
+    user: user1.id,
+  });
+  const message2 = new models.Message({
+    text: 'Happy to release ...',
+    user: user2.id,
+  });
+  const message3 = new models.Message({
+    text: 'Published a complete ...',
+    user: user2.id,
+  });
+  await message1.save();
+  await message2.save();
+  await message3.save();
+  await user1.save();
+  await user2.save();
+};
