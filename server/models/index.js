@@ -1,16 +1,19 @@
 import mongoose from 'mongoose';
+require('dotenv').config();
 
 import User from './user';
-import Booking from './booking';
 import Message from './message';
 
-const DB_URL = "mongodb://localhost:27017/node-express-mongodb-server"
+const url = 'mongodb://admin_dan:danonly06@ds061611.mlab.com:61611/heroku_pzk57mmp'
+
+// const url = process.env.DB_URL
+console.log(url)
 
 const connectDb = () => {
-  return mongoose.connect(DB_URL,{ useNewUrlParser: true, useUnifiedTopology: true });
+  return mongoose.connect(url, { useNewUrlParser: true});
 };
 
-const models = { User, Booking, Message };
+const models = { User, Message };
 
 export { connectDb };
 

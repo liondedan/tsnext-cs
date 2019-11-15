@@ -5,7 +5,7 @@ const path = require('path');
 const url = require('url');
 const cluster = require('cluster');
 const numCPUs = require('os').cpus().length;
-
+require('dotenv').config();
 import models, { connectDb } from './models';
 import routes from './routes';
 
@@ -71,8 +71,6 @@ if (!dev && cluster.isMaster) {
 
           createUsersWithMessages();
         }
-
-
 
         server.get('/', (req, res) => {
           return nextApp.render(req, res, '/', req.query)

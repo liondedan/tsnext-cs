@@ -14,4 +14,9 @@ router.get('/:userId', async (req, res) => {
   return res.send(user);
 });
 
+router.get('/cat', async (req, res) => {
+  const dewi = new models.User({username: 'dewi'})
+  await dewi.save()
+});
+
 export default router;
