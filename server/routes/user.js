@@ -1,22 +1,21 @@
 import { Router } from 'express';
-
+import models from '../models';
 const router = Router();
 
 router.get('/', async (req, res) => {
-  const users = await req.context.models.User.find();
+  console.log(models.User);
+  const users = await models.User.find();
   return res.send(users);
 });
 
 router.get('/:userId', async (req, res) => {
-  const user = await req.context.models.User.findById(
-    req.params.userId,
-  );
+  const user = await models.User.findById(req.params.userId);
   return res.send(user);
 });
 
 router.get('/cat', async (req, res) => {
-  const dewi = new models.User({username: 'dewi'})
-  await dewi.save()
+  const dewi = new models.User({ username: 'dewi' });
+  await dewi.save();
 });
 
 export default router;
