@@ -1,13 +1,15 @@
 import Header from './header';
+import Head from './head';
+import { MetaProps } from '../types';
 
-const layoutStyle = {};
-
-const withLayout = (Page: any) => {
+const withLayout = (Page: any, meta: MetaProps) => {
   return () => (
-    <div style={layoutStyle}>
+    <main>
+      <Head {...meta} />
       <Header />
       <Page />
-    </div>
+      <h1>hello</h1>
+    </main>
   );
 };
 
