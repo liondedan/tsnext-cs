@@ -1,5 +1,4 @@
-import styled from 'styled';
-import AvailabilityChecker from './availabilityChecker';
+import styled from 'styled-components';
 
 const ImageSection = styled.div``;
 const TextHeader = styled.div``;
