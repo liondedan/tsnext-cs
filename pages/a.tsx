@@ -1,31 +1,31 @@
-import Button from '@material-ui/core/Button';
-import { NextPage } from 'next';
-import Link from 'next/link';
+import React from 'react';
+import Container from '@material-ui/core/Container';
+import Typography from '@material-ui/core/Typography';
+import Box from '@material-ui/core/Box';
+import MuiLink from '@material-ui/core/Link';
 
-import withLayout from '../components/withLayout';
+function Copyright() {
+  return (
+    <Typography variant="body2" color="textSecondary" align="center">
+      {'Copyright © '}
+      <MuiLink color="inherit" href="https://material-ui.com/">
+        Your Website
+      </MuiLink>{' '}
+      {new Date().getFullYear()}
+      {'.'}
+    </Typography>
+  );
+}
 
-const a: NextPage = () => (
-  <>
-    <h1>cunt TV Shows</h1>
-    <ul>
-      <>
-        <Button variant="contained" color="primary">
-          Hello World
-        </Button>
-        <Link href="/">
-          <li>Cat</li>
-        </Link>
-        <Link href="/b">
-          <li>Cat</li>
-        </Link>
-      </>
-    </ul>
-  </>
-);
-
-const pageMeta = {
-  title: 'Doggggggg',
-  description: 'cat',
-};
-
-export default withLayout(a, pageMeta);
+export default function Index() {
+  return (
+    <Container maxWidth="sm">
+      <Box my={4}>
+        <Typography variant="h4" component="h1" gutterBottom>
+          Next.js example
+        </Typography>
+        <Copyright />
+      </Box>
+    </Container>
+  );
+}
