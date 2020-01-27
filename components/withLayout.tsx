@@ -1,5 +1,6 @@
 import Header from './header';
 import Head from './head';
+import Footer from './footer';
 import { MetaProps } from '../types';
 
 const withLayout = (Page: any, meta: MetaProps) => {
@@ -8,7 +9,7 @@ const withLayout = (Page: any, meta: MetaProps) => {
       <Head {...meta} />
       <Header />
       <Page />
-      <h1>hello</h1>
+      <Footer />
     </main>
   );
 };

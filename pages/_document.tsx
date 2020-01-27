@@ -2,6 +2,7 @@ import React from 'react';
 import Document, { Html, Head, Main, NextScript } from 'next/document';
 import { ServerStyleSheets } from '@material-ui/core/styles';
 import theme from '../lib/theme';
+import fonts from './fontFace';
 
 export default class MyDocument extends Document {
   render() {
@@ -13,6 +14,20 @@ export default class MyDocument extends Document {
           <link
             rel="stylesheet"
             href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap"
+          />
+          <style
+            dangerouslySetInnerHTML={{
+              __html: `
+  @font-face {
+    font-family: 'Colfax';
+    font-weight: 300;
+    src: url('/static/fonts/ColfaxWebRegularSub.woff') format('woff');
+  }
+  ${fonts}
+
+}
+`,
+            }}
           />
         </Head>
         <body>
