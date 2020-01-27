@@ -11,24 +11,6 @@ export default class MyDocument extends Document {
         <Head>
           {/* PWA primary color */}
           <meta name="theme-color" content={theme.palette.primary.main} />
-          <link
-            rel="stylesheet"
-            href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap"
-          />
-          <style
-            dangerouslySetInnerHTML={{
-              __html: `
-  @font-face {
-    font-family: 'Colfax';
-    font-weight: 300;
-    src: url('/static/fonts/ColfaxWebRegularSub.woff') format('woff');
-  }
-  ${fonts}
-
-}
-`,
-            }}
-          />
         </Head>
         <body>
           <Main />
@@ -63,6 +45,7 @@ MyDocument.getInitialProps = async ctx => {
   // 4. page.render
 
   // Render app and page and get the context of the page with collected side effects.
+
   const sheets = new ServerStyleSheets();
   const originalRenderPage = ctx.renderPage;
 
@@ -79,6 +62,11 @@ MyDocument.getInitialProps = async ctx => {
     styles: [
       ...React.Children.toArray(initialProps.styles),
       sheets.getStyleElement(),
+      <style
+        dangerouslySetInnerHTML={{
+          __html: `  ${fonts}`,
+        }}
+      />,
     ],
   };
 };
