@@ -5,10 +5,7 @@ import { red } from '@material-ui/core/colors';
 const theme = createMuiTheme({
   palette: {
     primary: {
-      main: '#556cd6',
-    },
-    secondary: {
-      main: '#19857b',
+      main: '#ededed',
     },
     error: {
       main: red.A400,
@@ -63,8 +60,8 @@ const theme = createMuiTheme({
       lineHeight: '1.25em',
     },
     h5: {
-      fontSize: 24,
-      fontWeight: 800,
+      fontSize: 18,
+      fontWeight: 600,
       color: '#484848',
       lineHeight: '1.25em',
     },

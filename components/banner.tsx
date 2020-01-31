@@ -1,5 +1,6 @@
 import styled from 'styled-components';
 import Typography from '@material-ui/core/Typography';
+import Button from '@material-ui/core/Button';
 import Grid from '@material-ui/core/Grid';
 
 const A = styled.div`
@@ -132,8 +133,20 @@ const Banner = () => (
                     National Park. Relax and experience the magic of a holiday
                     in the heart of Wales
                   </Typography>
+
+                  <Button
+                    style={{
+                      marginTop: 40,
+                      justifyContent: 'center',
+                      textAlign: 'center',
+                    }}
+                    variant="contained"
+                    color="secondary"
+                    size="large"
+                  >
+                    Book your camping trip
+                  </Button>
                 </Grid>
-                hello I am aca
               </C3>
             </C2>
           </C1>
