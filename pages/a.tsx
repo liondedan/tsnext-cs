@@ -69,12 +69,10 @@ const index: React.SFC = () => {
         <Grid container style={alignFlexIcons} spacing={4}>
           {testimonialIcon('cool-camping-logo.png')}
           {testimonialIcon('dm.png')}
-          {testimonialIcon('pitchup-hori.png')}
           {testimonialIcon('ng.png')}
           {testimonialIcon('tripadvisor.png')}
           {testimonialIcon('red-bull-approved.png')}
           {testimonialIcon('tgo.png')}
-          {/* {testimonialIcon('pu.png')} */}
         </Grid>
       </Container>
       <div
@@ -116,7 +114,7 @@ const index: React.SFC = () => {
           </Grid>
         </Container>
       </div>
-      <Container style={{ marginTop: 40 }} maxWidth="md">
+      <Container style={{ marginTop: 40, paddingBottom: 60 }} maxWidth="md">
         <Grid container spacing={5}>
           <Grid item xs={12} sm={6}>
             <Typography variant="h4" gutterBottom>
@@ -148,47 +146,36 @@ const index: React.SFC = () => {
               'Take a boat to visit wildlife on Ramsey or Skomer'
             )}
           </Grid>
-
-          <ImageText
-            title="Why camping in Pembrokeshire?"
-            body={HomePage.feature_1}
-            cta="dog"
-            imageURL="http://coastalstay.co.uk/wp-content/uploads/2015/12/coastal-stay-features-min.png"
-          />
-          <ImageText
-            title="Where are we located?"
-            reverseOrder
-            body={HomePage.feature_2}
-            cta="dog"
-            imageURL="https://www.visitpembrokeshire.com/wp-content/uploads/28-Whitesands_Ramsey_Carn_Llidi-1500x1000.jpg"
-          />
-          <ImageText
-            title="What is there to do nearby?"
-            body={HomePage.feature_3}
-            cta="dog"
-            imageURL="/things_to_do.png"
-          />
-        </Grid>
-      </Container>
-      <Container style={{ marginTop: 40 }} maxWidth="md">
-        <Typography
-          style={{ marginTop: 60, marginBottom: 30, textAlign: 'center' }}
-          variant="h4"
-          gutterBottom
-        >
-          What is there to do nearby
-        </Typography>
-        <Grid container spacing={5}>
-          <Grid item xs={12} sm={6}>
-            <Typography variant="body1" component="h6" gutterBottom>
-              Listing a home on Airbnb has never been easier or more
-              customisable. You’re just a few steps away from earning money and
-              reaching millions of global travellers.
-            </Typography>
+          <Grid item xs={12}>
+            <ButtonBase url="/b" />
           </Grid>
-          <Grid item xs={12} sm={6}></Grid>
         </Grid>
       </Container>
+      <div
+        style={{
+          backgroundColor: '#F7F7F7',
+          paddingTop: 10,
+          paddingBottom: 60,
+        }}
+      >
+        <Container style={{ marginTop: 40 }} maxWidth="md">
+          <Grid container spacing={5}>
+            <ImageText
+              title="Where are we located?"
+              reverseOrder
+              body={HomePage.feature_2}
+              cta="dog"
+              imageURL="https://www.visitpembrokeshire.com/wp-content/uploads/28-Whitesands_Ramsey_Carn_Llidi-1500x1000.jpg"
+            />
+            <ImageText
+              title="What is there to do nearby?"
+              body={HomePage.feature_3}
+              cta="dog"
+              imageURL="/things_to_do.png"
+            />
+          </Grid>
+        </Container>
+      </div>
       <Container maxWidth="md">
         <Grid>
           <Typography
@@ -246,7 +233,6 @@ const index: React.SFC = () => {
             fantastic restaurant is 'The Cwtch' (which means to hug in Welsh).
           </Typography>
         </Grid>
-        <ButtonBase url="/b" />
       </Container>
       <Container
         style={{ justifyContent: 'center', textAlign: 'center' }}
