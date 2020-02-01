@@ -3,23 +3,14 @@ import Container from '@material-ui/core/Container';
 import IconFont from '../components/iconFont';
 import TitleBlock from '../components/titleBlock';
 import ContainerWrap from '../components/containerWrap';
-import FeatureSection from '../components/featuredSection';
 import Typography from '@material-ui/core/Typography';
 import Banner from '../components/banner';
-import HomePage from '../content/home';
+import cc from '../content/camping';
 import withLayout from '../components/withLayout';
 import Grid from '@material-ui/core/Grid';
-import ButtonBase from '../components/bannerButton';
 import Divider from '@material-ui/core/Divider';
 // import Divider from '@material-ui/core/Divider';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-// @ts-ignore
-import {
-  faWater,
-  faCheckCircle,
-  faTrophy,
-  faLeaf,
-} from '@fortawesome/free-solid-svg-icons';
+import { faCheckCircle } from '@fortawesome/free-solid-svg-icons';
 import ImageText from '../components/imageText';
 
 const testimonialIcon = (iconURL: string) => (
@@ -27,10 +18,6 @@ const testimonialIcon = (iconURL: string) => (
     <img src={iconURL} style={{ width: '100%', maxWidth: '90px' }} />
   </Grid>
 );
-
-const trophy = <FontAwesomeIcon style={{ width: '14px' }} icon={faTrophy} />;
-const ocean = <FontAwesomeIcon style={{ width: '14px' }} icon={faWater} />;
-const wildlife = <FontAwesomeIcon style={{ width: '14px' }} icon={faLeaf} />;
 
 const alignFlexIcons = {
   display: 'flex',
@@ -42,12 +29,12 @@ const index: React.SFC = () => {
   return (
     <>
       <Banner
-        title="Camping in Pembrokeshire"
-        subtitle="Award Winning Campsite"
-        body="Escape to a beautifully finished campsite small-holding located in a National Trust Conservation area with uninterrupted views of the north Pembrokeshire Coast National Park. Relax and experience the magic of a holiday in the heart of Wales"
+        title="Pembrokeshire Camping"
+        subtitle="Camping in West Wales"
+        body="Providing just enough luxury to keep you comfortable and content, but not too much that you forget you’re camping in nature"
         ctaText="Book Now"
         ctaLink="/book-now"
-        url="http://coastalstay.co.uk/wp-content/uploads/2015/02/camping-pembrokeshire.jpg"
+        url="http://coastalstay.co.uk/wp-content/uploads/2016/08/pembrokeshire-camping-1.jpg"
       />
 
       <Container maxWidth="lg" style={{ paddingTop: 10, paddingBottom: 10 }}>
@@ -60,42 +47,11 @@ const index: React.SFC = () => {
           {testimonialIcon('tgo.png')}
         </Grid>
       </Container>
-      <TitleBlock
-        title="Camping in Pembrokeshire"
-        titleVariant="h2"
-        invert
-        body="            If you are looking for a hi-tech holiday park then we are probably
-                not for you, but if you want your children to know how to build a
-                den or forage for blackberries, then our Pembrokeshire camping site
-                will be exactly what you’re looking for.
-    "
-      >
-        <Grid container spacing={5}>
-          {FeatureSection({
-            title: 'Pembrokeshire Coastline',
-            icon: ocean,
-            body:
-              'Uninterrupted views of the north Pembrokeshire Coast National Park, located in a National Trust Conservation area, our pitches are based around a natural spring fed lake.',
-          })}
-          {FeatureSection({
-            title: 'Rural Bliss',
-            icon: wildlife,
-            body:
-              'We pride ourselves on a laid back camping pembrokeshire atmosphere and aim to provide a back-to-nature intimate experience for all the family.',
-          })}
-          {FeatureSection({
-            title: 'Award Winning',
-            icon: trophy,
-            body:
-              'Four star rating by the Welsh tourism board and one of the most popular camping pembrokeshire site on coolcamping & pitchup.',
-          })}
-        </Grid>
-      </TitleBlock>
-      <ContainerWrap>
+      <ContainerWrap invert>
         <Grid container spacing={5}>
           <Grid item xs={12} sm={6}>
             <Typography variant="h4" gutterBottom>
-              Why camping in Pembrokeshire
+              Why Pembrokeshire Camping?
             </Typography>
 
             <Typography
@@ -104,53 +60,66 @@ const index: React.SFC = () => {
               component="h6"
               gutterBottom
             >
-              {HomePage.feature_1}
+              {cc.f_1_1}
+            </Typography>
+            <Typography
+              variant="body1"
+              style={{ paddingTop: 10 }}
+              component="h6"
+              gutterBottom
+            >
+              {cc.f_1_2}
             </Typography>
           </Grid>
           <Grid style={{ marginTop: 45 }} item xs={12} sm={6}>
             {IconFont(
               faCheckCircle,
-              'Explore the historic ancient city of St Davids'
+              'Spacious pitches with plenty of room to spread out'
+            )}
+            {IconFont(faCheckCircle, "Each pitch has it's own fire pit")}
+            {IconFont(
+              faCheckCircle,
+              'Overlooking the sea and the Pembrokeshire coastline'
             )}
             {IconFont(
               faCheckCircle,
-              'Walk the Pembrokeshire Coast National Path'
+              'Adventure on the doorstop - Surfing, Coasteering etc. '
             )}
-            {IconFont(faCheckCircle, "Try coasteering in it's birth place")}
-            {IconFont(faCheckCircle, 'Learn to surf in blue flag award waters')}
-            {IconFont(faCheckCircle, 'Cycle the challenging coastal roads')}
             {IconFont(
               faCheckCircle,
-              'Take a boat to visit wildlife on Ramsey or Skomer'
+              'Farm small holding with Goats and Chickens'
             )}
           </Grid>
-          <Grid item xs={12}>
-            <ButtonBase url="/b" />
-          </Grid>
+        </Grid>
+      </ContainerWrap>
+      <iframe
+        width="100%"
+        height="315"
+        src="https://www.youtube-nocookie.com/embed/VcCivz7xW_g?controls=0"
+        frameBorder="0"
+        allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
+      ></iframe>
+      <ContainerWrap>
+        <Grid container spacing={5}>
+          <ImageText
+            title="Where are we located?"
+            reverseOrder
+            body={[cc.f_2_1, cc.f_2_2]}
+            imageURL="https://www.visitpembrokeshire.com/wp-content/uploads/28-Whitesands_Ramsey_Carn_Llidi-1500x1000.jpg"
+          />
         </Grid>
       </ContainerWrap>
       <ContainerWrap invert>
         <Grid container spacing={5}>
           <ImageText
-            title="Where are we located?"
-            reverseOrder
-            body={HomePage.feature_2}
-            cta="dog"
-            imageURL="https://www.visitpembrokeshire.com/wp-content/uploads/28-Whitesands_Ramsey_Carn_Llidi-1500x1000.jpg"
-          />
-        </Grid>
-      </ContainerWrap>
-      <ContainerWrap>
-        <Grid container spacing={5}>
-          <ImageText
             title="What is there to do nearby?"
-            body={HomePage.feature_3}
+            body={cc.f_3_1}
             cta="dog"
             imageURL="/things_to_do.png"
           />
         </Grid>
       </ContainerWrap>
-      <ContainerWrap invert>
+      <ContainerWrap>
         <Grid>
           <Typography
             style={{ marginTop: 40, textAlign: 'center' }}
@@ -245,7 +214,7 @@ const index: React.SFC = () => {
 };
 
 const MetaData = {
-  title: 'Coastal Stay Home',
+  title: 'Pembrokeshire Camping',
 };
 
 export default withLayout(index, MetaData);

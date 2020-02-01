@@ -5,8 +5,8 @@ import Grid from '@material-ui/core/Grid';
 interface ImageTextProps {
   reverseOrder?: boolean;
   title: string;
-  body: string;
-  cta: string;
+  body: string | string[];
+  cta?: string;
   imageURL: string;
 }
 
@@ -16,15 +16,23 @@ const ImageText: React.FunctionComponent<ImageTextProps> = ({
   body,
   reverseOrder,
 }) => {
+  const bodyStrut = (s: string) => (
+    <Typography variant="body1" component="h6" gutterBottom>
+      {s}
+    </Typography>
+  );
+
+  const mapBody = (array: string[]) => array.map(c => bodyStrut(c));
+
+  let bodyText = typeof body == 'object' ? mapBody(body) : bodyStrut(body);
+
   const img = () => <img src={imageURL} style={{ width: '100%' }} />;
   const content = () => (
     <>
       <Typography variant="h4" gutterBottom>
         {title}
       </Typography>
-      <Typography variant="body1" component="h6" gutterBottom>
-        {body}
-      </Typography>
+      {bodyText}
     </>
   );
   return (

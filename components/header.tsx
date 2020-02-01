@@ -135,7 +135,7 @@ const ButtonAppBar: React.SFC = ({}) => {
                 Home
               </Link>
               <Link
-                href="#"
+                href="/pembrokeshire-camping"
                 className={classes.button}
                 color="inherit"
                 variant="body2"
@@ -143,7 +143,7 @@ const ButtonAppBar: React.SFC = ({}) => {
                 Pembrokeshire Camping
               </Link>
               <Link
-                href="#"
+                href="/glamping-pembrokeshire"
                 className={classes.button}
                 color="inherit"
                 variant="body2"
@@ -151,7 +151,7 @@ const ButtonAppBar: React.SFC = ({}) => {
                 Glamping
               </Link>
               <Link
-                href="#"
+                href="/book-now"
                 color="inherit"
                 className={classes.button}
                 variant="body2"

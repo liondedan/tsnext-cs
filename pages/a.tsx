@@ -1,4 +1,5 @@
 import React from 'react';
+import iconFont from '../components/iconFont';
 import Container from '@material-ui/core/Container';
 import Typography from '@material-ui/core/Typography';
 import Banner from '../components/banner';
@@ -18,21 +19,6 @@ import {
   faLeaf,
 } from '@fortawesome/free-solid-svg-icons';
 import ImageText from '../components/imageText';
-
-const iconFont = (icon: any, text: string) => (
-  <Typography variant="body1" component="h6" gutterBottom>
-    <FontAwesomeIcon
-      style={{
-        width: '12px',
-        marginRight: 12,
-        color: '#4caf50',
-        marginTop: 14,
-      }}
-      icon={icon}
-    />
-    {text}
-  </Typography>
-);
 
 const featureSection = ({ title, body, icon }: any) => (
   <Grid item xs={12} sm={4}>

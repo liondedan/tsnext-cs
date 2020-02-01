@@ -80,7 +80,23 @@ const C3 = styled.div`
   }
 `;
 
-const Banner = () => (
+interface BannerProps {
+  url: string;
+  body: string;
+  ctaLink: string;
+  title: string;
+  subtitle: string;
+  ctaText: string;
+}
+
+const Banner: React.FunctionComponent<BannerProps> = ({
+  url,
+  ctaLink,
+  title,
+  body,
+  subtitle,
+  ctaText,
+}: any) => (
   <section>
     <A>
       <A1>
@@ -90,8 +106,8 @@ const Banner = () => (
               alt=""
               role="presentation"
               sizes="100vw"
-              src="http://coastalstay.co.uk/wp-content/uploads/2015/02/camping-pembrokeshire.jpg"
-              srcSet="http://coastalstay.co.uk/wp-content/uploads/2015/02/camping-pembrokeshire.jpg"
+              src={url}
+              srcSet={url}
               style={{
                 width: '100%',
                 height: '100%',
@@ -111,7 +127,7 @@ const Banner = () => (
                   variant="h6"
                   component="h6"
                 >
-                  Award winning camping
+                  {subtitle}
                 </Typography>
                 <Typography
                   variant="h1"
@@ -119,7 +135,7 @@ const Banner = () => (
                   component="h1"
                   gutterBottom
                 >
-                  Camping in Pembrokeshire
+                  {title}
                 </Typography>
                 <Grid>
                   <Typography
@@ -127,14 +143,11 @@ const Banner = () => (
                     variant="body1"
                     component="h5"
                   >
-                    Escape to a beautifully finished campsite small-holding
-                    located in a National Trust Conservation area with
-                    uninterrupted views of the north Pembrokeshire Coast
-                    National Park. Relax and experience the magic of a holiday
-                    in the heart of Wales
+                    {body}
                   </Typography>
 
                   <Button
+                    href={ctaLink}
                     style={{
                       marginTop: 40,
                       justifyContent: 'center',
@@ -144,7 +157,7 @@ const Banner = () => (
                     color="secondary"
                     size="large"
                   >
-                    Book your camping trip
+                    {ctaText}
                   </Button>
                 </Grid>
               </C3>
