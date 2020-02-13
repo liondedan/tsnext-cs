@@ -23,9 +23,20 @@ nextApp.prepare().then(() => {
   server.get('/', (req: any, res: any) => {
     return nextApp.render(req, res, '/', req.query);
   });
+
   server.get('/api/a', ({ res }: any) => {
     res.end(JSON.stringify({ a: 1 }));
   });
+
+  server.use('/api/contact', (req: any, res: any) => {
+    if (!req.body) return res.sendStatus(400);
+    res
+      .status(200)
+      .send('Success, Your registration has been saved to the database!');
+    console.log(res);
+    console.log('submitted contact form');
+  });
+
   // Default catch-all renders Next app
   server.get('*', (req: any, res: any) => {
     const parsedUrl = url.parse(req.url, true);

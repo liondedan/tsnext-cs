@@ -1,10 +1,10 @@
 import React from 'react';
-import Container from '@material-ui/core/Container';
 import IconFont from '../components/iconFont';
 import TitleBlock from '../components/titleBlock';
 import ContainerWrap from '../components/containerWrap';
 import Typography from '@material-ui/core/Typography';
 import Banner from '../components/banner';
+import FeatureLogo from '../components/featuedLogo';
 import cc from '../content/camping';
 import withLayout from '../components/withLayout';
 import Grid from '@material-ui/core/Grid';
@@ -12,18 +12,6 @@ import Divider from '@material-ui/core/Divider';
 // import Divider from '@material-ui/core/Divider';
 import { faCheckCircle } from '@fortawesome/free-solid-svg-icons';
 import ImageText from '../components/imageText';
-
-const testimonialIcon = (iconURL: string) => (
-  <Grid item xs={4} sm={2}>
-    <img src={iconURL} style={{ width: '100%', maxWidth: '90px' }} />
-  </Grid>
-);
-
-const alignFlexIcons = {
-  display: 'flex',
-  alignItems: 'center',
-  justifyContent: 'center',
-};
 
 const index: React.SFC = () => {
   return (
@@ -37,16 +25,8 @@ const index: React.SFC = () => {
         url="http://coastalstay.co.uk/wp-content/uploads/2016/08/pembrokeshire-camping-1.jpg"
       />
 
-      <Container maxWidth="lg" style={{ paddingTop: 10, paddingBottom: 10 }}>
-        <Grid container style={alignFlexIcons} spacing={2}>
-          {testimonialIcon('cool-camping-logo.png')}
-          {testimonialIcon('dm.png')}
-          {testimonialIcon('ng.png')}
-          {testimonialIcon('tripadvisor.png')}
-          {testimonialIcon('red-bull-approved.png')}
-          {testimonialIcon('tgo.png')}
-        </Grid>
-      </Container>
+      <FeatureLogo />
+
       <ContainerWrap invert>
         <Grid container spacing={5}>
           <Grid item xs={12} sm={6}>
@@ -113,7 +93,112 @@ const index: React.SFC = () => {
         <Grid container spacing={5}>
           <ImageText
             title="What is there to do nearby?"
-            body={cc.f_3_1}
+            body={[cc.f_3_1, cc.f_3_2]}
+            cta="dog"
+            imageURL="/things_to_do.png"
+          />
+        </Grid>
+      </ContainerWrap>
+      <ContainerWrap>
+        <Grid container spacing={5}>
+          <ImageText
+            title="What is there to do nearby?"
+            reverseOrder
+            body={cc.f_4_1}
+            cta="dog"
+            imageURL="/things_to_do.png"
+          />
+        </Grid>
+      </ContainerWrap>
+      <ContainerWrap invert>
+        <Grid container spacing={5}>
+          <ImageText
+            title="What is there to do nearby?"
+            body={[cc.f_5_1, cc.f_5_2]}
+            cta="dog"
+            imageURL="/things_to_do.png"
+          />
+        </Grid>
+      </ContainerWrap>
+      <ContainerWrap>
+        <Grid container spacing={5}>
+          <ImageText
+            title="What is there to do nearby?"
+            reverseOrder
+            body={[cc.f_6_1, cc.f_6_2]}
+            cta="dog"
+            imageURL="/things_to_do.png"
+          />
+        </Grid>
+      </ContainerWrap>
+      <ContainerWrap invert>
+        <Grid container spacing={5}>
+          <ImageText
+            title="What is there to do nearby?"
+            body={[cc.f_7_1, cc.f_7_2]}
+            cta="dog"
+            imageURL="/things_to_do.png"
+          />
+        </Grid>
+      </ContainerWrap>
+      <ContainerWrap>
+        <Grid container spacing={5}>
+          <ImageText
+            title="What is there to do nearby?"
+            body={[cc.f_8_1, cc.f_8_2]}
+            cta="dog"
+            imageURL="/things_to_do.png"
+            reverseOrder
+          />
+        </Grid>
+      </ContainerWrap>
+      <ContainerWrap invert>
+        <Grid container spacing={5}>
+          <ImageText
+            title="What is there to do nearby?"
+            body={[cc.f_9_1, cc.f_9_2]}
+            cta="dog"
+            imageURL="/things_to_do.png"
+          />
+        </Grid>
+      </ContainerWrap>
+      <ContainerWrap>
+        <Grid container spacing={5}>
+          <ImageText
+            title="What is there to do nearby?"
+            body={[cc.f_10_1, cc.f_10_2]}
+            cta="dog"
+            reverseOrder
+            imageURL="/things_to_do.png"
+          />
+        </Grid>
+      </ContainerWrap>
+      <ContainerWrap invert>
+        <Grid container spacing={5}>
+          <ImageText
+            title="What is there to do nearby?"
+            body={[cc.f_11_1, cc.f_11_2]}
+            cta="dog"
+            imageURL="/things_to_do.png"
+          />
+        </Grid>
+      </ContainerWrap>
+      <ContainerWrap>
+        <Grid container spacing={5}>
+          <ImageText
+            title="What is there to do nearby?"
+            body={cc.f_12_1}
+            cta="dog"
+            imageURL="/things_to_do.png"
+            reverseOrder
+          />
+        </Grid>
+      </ContainerWrap>
+      <ContainerWrap invert>
+        <Grid container spacing={5}>
+          <ImageText
+            title="What is there to do nearby?"
+            body={cc.f_13}
             cta="dog"
             imageURL="/things_to_do.png"
           />
