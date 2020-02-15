@@ -5,8 +5,7 @@
     "test": "jest",
     "dev": "nodemon",
     "build": "next build && tsc --project tsconfig.server.json",
-    "start": "cross-env NODE_ENV=production node dist/index.js",
-    "cypress:open": "cypress open"
+    "start": "cross-env NODE_ENV=production node dist/index.js"
   },
   "dependencies": {
     "@babel/cli": "^7.7.0",
