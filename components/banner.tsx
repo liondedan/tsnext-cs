@@ -28,7 +28,6 @@ const B = styled.div`
   left: 0px !important;
   right: 0px !important;
 `;
-
 const B1 = styled.div`
   position: relative !important;
   width: 100vw !important;
