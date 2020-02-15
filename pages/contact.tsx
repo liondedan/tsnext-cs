@@ -1,6 +1,5 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { format } from 'date-fns';
-import TitleBlock from '../components/titleBlock';
 import { useForm } from 'react-hook-form';
 import ContainerWrap from '../components/containerWrap';
 import FeatureSection from '../components/featuredSection';
@@ -11,6 +10,7 @@ import Grid from '@material-ui/core/Grid';
 import Button from '@material-ui/core/Button';
 import { Booking } from '../types';
 import TextField from '@material-ui/core/TextField';
+import Typography from '@material-ui/core/Typography';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 // @ts-ignore
 import { faWater, faTrophy, faLeaf } from '@fortawesome/free-solid-svg-icons';
@@ -30,7 +30,8 @@ const useStyles = makeStyles((theme: Theme) =>
       },
     },
     input: {
-      marginBottom: 20,
+      marginBottom: 30,
+      width: '100%',
     },
     datePicker: {},
   })
@@ -38,8 +39,11 @@ const useStyles = makeStyles((theme: Theme) =>
 
 const index: React.SFC = () => {
   const classes = useStyles();
+  const [error, setError] = useState(false);
+  const [success, setSuccess] = useState(false);
   const { errors, register, handleSubmit } = useForm<Booking>();
   const today = format(new Date(), 'yyyy-MM-dd');
+
   const onSubmit = handleSubmit((booking: Booking) => {
     fetch('http://localhost:3000/api/contact', {
       method: 'POST',
@@ -51,31 +55,142 @@ const index: React.SFC = () => {
       .then(response => response)
       .then(result => {
         console.log(result);
+        setSuccess(true);
+      })
+      .catch((error: any) => {
+        console.log(error);
+        setError(true);
       });
-  }); //
+  });
 
   return (
     <>
       <Banner
-        title="Camping in Pembrokeshire"
+        height={60}
+        title="Get in touch"
         subtitle="Award Winning Campsite"
-        body="Escape to a beautifully finished campsite small-holding located in a National Trust Conservation area with uninterrupted views of the north Pembrokeshire Coast National Park. Relax and experience the magic of a holiday in the heart of Wales"
+        body=""
         ctaText="Book Now"
         ctaLink="/book-now"
         url="http://coastalstay.co.uk/wp-content/uploads/2015/02/camping-pembrokeshire.jpg"
       />
       <FeatureLogo />
-      <TitleBlock
-        title="Camping in Pembrokeshire"
-        titleVariant="h2"
-        invert
-        body="Get in touch with us and we can "
-      >
+      <ContainerWrap>
+        <Grid container spacing={5}>
+          <Grid item xs={12} sm={8}>
+            <Typography
+              style={{ marginBottom: 50 }}
+              variant="body1"
+              component="h5"
+            >
+              Fill out the form below to check our availability or for any
+              additional questions
+            </Typography>
+            {success && (
+              <Typography
+                style={{ marginBottom: 50 }}
+                variant="body1"
+                component="h5"
+              >
+                Thanks for getting in touch - your request has been sent and you
+                should receive a reply shortly.
+              </Typography>
+            )}
+            {error && <p>Sorry there has been an issue</p>}
+
+            {!success && (
+              <form className={classes.root} noValidate onSubmit={onSubmit}>
+                <Grid item xs={12}>
+                  <TextField
+                    id="fullName"
+                    className={classes.input}
+                    inputRef={register({ required: true })}
+                    name="fullName"
+                    label="Full Name"
+                    variant="outlined"
+                    required
+                    error={errors.fullName ? true : false}
+                  />
+                </Grid>
+                <Grid item xs={12}>
+                  <TextField
+                    className={classes.input}
+                    id="email"
+                    inputRef={register({
+                      required: true,
+                      pattern: {
+                        value: /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i,
+                        message: 'invalid email address',
+                      },
+                    })}
+                    error={errors.emailAddress ? true : false}
+                    required
+                    name="emailAddress"
+                    label="Email Address"
+                    variant="outlined"
+                  />
+                </Grid>
+                <Grid container>
+                  <Grid item xs={6}>
+                    <TextField
+                      type="date"
+                      style={{ width: '85%' }}
+                      id="startDate"
+                      inputRef={register}
+                      className={classes.input}
+                      name="startDate"
+                      label="Start Date"
+                      variant="outlined"
+                      defaultValue={today}
+                    />
+                  </Grid>
+                  <Grid item xs={6}>
+                    <TextField
+                      className={classes.input}
+                      type="date"
+                      id="endDate"
+                      inputRef={register}
+                      name="endDate"
+                      defaultValue={today}
+                      label="End Date"
+                      variant="outlined"
+                      style={{ width: '85%' }}
+                    />
+                  </Grid>
+                </Grid>
+                <Grid item xs={12}>
+                  <TextField
+                    multiline
+                    id="message"
+                    inputRef={register}
+                    className={classes.input}
+                    name="message"
+                    label="Message"
+                    variant="outlined"
+                    rows={4}
+                  />
+                </Grid>
+                <Grid item xs={12} sm={6}>
+                  <Button
+                    type="submit"
+                    color="secondary"
+                    size="large"
+                    variant="contained"
+                  >
+                    Submit
+                  </Button>
+                </Grid>
+              </form>
+            )}
+          </Grid>
+        </Grid>
+      </ContainerWrap>
+      <ContainerWrap invert>
         <Grid container spacing={5}>
           {FeatureSection({
             title: 'Location',
             icon: ocean,
-            body: '',
+            body: 'Coastal Stay, Noddfa Farm, Pembrokeshire, Sa626DP',
           })}
           {FeatureSection({
             title: 'Email',
@@ -87,72 +202,6 @@ const index: React.SFC = () => {
             icon: trophy,
             body: '01348 837822',
           })}
-        </Grid>
-      </TitleBlock>
-      <ContainerWrap>
-        <Grid container spacing={5}>
-          <Grid item xs={12} sm={8}>
-            <form className={classes.root} noValidate onSubmit={onSubmit}>
-              <Grid item xs={12}>
-                <TextField
-                  id="fullName"
-                  inputRef={register({ required: true })}
-                  name="fullName"
-                  label="Full Name"
-                  variant="outlined"
-                  style={{ width: '100%' }}
-                  error={errors.fullName ? true : false}
-                  helperText="Please enter your full name"
-                />
-              </Grid>
-              <Grid item xs={12}>
-                <TextField
-                  style={{ width: '100%' }}
-                  id="email"
-                  inputRef={register({
-                    required: true,
-                    pattern: {
-                      value: /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i,
-                      message: 'invalid email address',
-                    },
-                  })}
-                  error={errors.emailAddress ? true : false}
-                  required
-                  name="emailAddress"
-                  helperText="Please enter a valid email address"
-                  label="Email Address"
-                  variant="outlined"
-                />
-              </Grid>
-              <Grid item xs={12}>
-                <TextField
-                  style={{ width: '100%' }}
-                  type="date"
-                  id="start_date"
-                  inputRef={register}
-                  name="state_date"
-                  label="Start Date"
-                  variant="outlined"
-                  defaultValue={today}
-                />
-              </Grid>
-              <Grid item xs={12}>
-                <TextField
-                  style={{ width: '100%' }}
-                  type="date"
-                  id="end_date"
-                  inputRef={register}
-                  name="end_date"
-                  defaultValue={today}
-                  label="End Date"
-                  variant="outlined"
-                />
-              </Grid>
-              <Grid item xs={12} sm={6}>
-                <Button type="submit">Hi</Button>
-              </Grid>
-            </form>
-          </Grid>
         </Grid>
       </ContainerWrap>
     </>

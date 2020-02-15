@@ -119,15 +119,22 @@ const ButtonAppBar: React.SFC = ({}) => {
             </IconButton>
           </Hidden>
           <LogoWrap>
-            <Logo
-              style={{ height: 50 }}
-              src="coastal-stay-logo-white-min.png"
-            />
+            <Link
+              href="/"
+              className={classes.button}
+              color="inherit"
+              variant="body2"
+            >
+              <Logo
+                style={{ height: 50 }}
+                src="coastal-stay-logo-white-min.png"
+              />
+            </Link>
           </LogoWrap>
           <Hidden only="xs">
             <Typography>
               <Link
-                href="#"
+                href="/"
                 className={classes.button}
                 color="inherit"
                 variant="body2"
@@ -151,7 +158,7 @@ const ButtonAppBar: React.SFC = ({}) => {
                 Glamping
               </Link>
               <Link
-                href="/book-now"
+                href="/contact"
                 color="inherit"
                 className={classes.button}
                 variant="body2"

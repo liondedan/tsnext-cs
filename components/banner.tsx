@@ -1,7 +1,11 @@
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
 import Typography from '@material-ui/core/Typography';
 import Button from '@material-ui/core/Button';
 import Grid from '@material-ui/core/Grid';
+
+interface BannerHeight {
+  height?: number;
+}
 
 const A = styled.div`
   padding-left: 40px !important;
@@ -10,10 +14,11 @@ const A = styled.div`
   max-width: 1600px !important;
 `;
 
-const A1 = styled.div`
-  // padding-top: 37.59398496240601% !important;
-  padding-top: 100vh;
-  position: relative !important;
+const A1 = styled.div<BannerHeight>`
+  ${({ height }) => css`
+    padding-top: ${height}vh;
+    position: relative !important;
+  `}
 `;
 
 const B = styled.div`
@@ -87,6 +92,7 @@ interface BannerProps {
   title: string;
   subtitle: string;
   ctaText: string;
+  height?: number;
 }
 
 const Banner: React.FunctionComponent<BannerProps> = ({
@@ -94,12 +100,13 @@ const Banner: React.FunctionComponent<BannerProps> = ({
   ctaLink,
   title,
   body,
+  height = 100,
   subtitle,
   ctaText,
 }: any) => (
   <section>
     <A>
-      <A1>
+      <A1 height={height}>
         <B>
           <B1>
             <Image
