@@ -44,8 +44,11 @@ const index: React.SFC = () => {
   const { errors, register, handleSubmit } = useForm<Booking>();
   const today = format(new Date(), 'yyyy-MM-dd');
 
+  const PORT = process.env.NODE_ENV == 'development' ? 3000 : process.env.PORT;
+  console.log(PORT);
+
   const onSubmit = handleSubmit((booking: Booking) => {
-    fetch('http://localhost:3000/api/contact', {
+    fetch(`http://localhost:${PORT}/api/contact`, {
       method: 'POST',
       headers: {
         'Content-type': 'application/json',

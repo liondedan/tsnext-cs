@@ -15,7 +15,6 @@ const nextApp = nextFrame({ dir: '.', dev });
 const nextHandler = nextApp.getRequestHandler();
 
 nextApp.prepare().then(() => {
-  // Create express server and setup middleware
   const server: express.Application = express();
   server.use(express.json());
   server.use(express.urlencoded({ extended: true }));
