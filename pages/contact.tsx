@@ -46,6 +46,7 @@ const index: React.SFC = () => {
 
   const PORT = process.env.NODE_ENV == 'development' ? 3000 : process.env.PORT;
   console.log(PORT);
+  console.log(process.env.PORT);
 
   const onSubmit = handleSubmit((booking: Booking) => {
     fetch(`http://localhost:${PORT}/api/contact`, {
