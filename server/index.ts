@@ -52,6 +52,7 @@ nextApp.prepare().then(() => {
       html: emailHtml,
     };
 
+    console.log(process.env.SG_MAIL);
     sgMail
       .send(msg)
       .then(() => {
@@ -75,10 +76,13 @@ nextApp.prepare().then(() => {
     sgMail
       .send(msg)
       .then(() => {
-        res.status(200).send('Oh uh, something went wrong');
+        res.status(200);
+        res.send('Oh uh, something went wrong');
       })
       .catch((error: any) => {
-        res.status(404).send('There was an error sending the email', error);
+        console.log(error);
+        res.status(404);
+        res.send('There was an error sending the email', error);
       });
 
     // if (!req.body) return res.sendStatus(400);
