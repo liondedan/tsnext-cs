@@ -49,7 +49,7 @@ const index: React.SFC = () => {
   console.log(process.env.PORT);
 
   const onSubmit = handleSubmit((booking: Booking) => {
-    fetch(`http://localhost:${PORT}/api/contact`, {
+    fetch(`/api/contact`, {
       method: 'POST',
       headers: {
         'Content-type': 'application/json',
