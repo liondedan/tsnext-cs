@@ -76,7 +76,7 @@ const index: React.SFC = () => {
         body=""
         ctaText="Book Now"
         ctaLink="/book-now"
-        url="http://coastalstay.co.uk/wp-content/uploads/2015/02/camping-pembrokeshire.jpg"
+        url="camping-pembrokeshire-header.jpg"
       />
       <FeatureLogo />
       <ContainerWrap>

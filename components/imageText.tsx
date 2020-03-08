@@ -16,9 +16,13 @@ const ImageText: React.FunctionComponent<ImageTextProps> = ({
   body,
   reverseOrder,
 }) => {
+  const createMarkup = (s: string) => {
+    return { __html: s };
+  };
+
   const bodyStrut = (s: string) => (
     <Typography variant="body1" component="h6" gutterBottom>
-      {s}
+      <div dangerouslySetInnerHTML={createMarkup(s)} />
     </Typography>
   );
 

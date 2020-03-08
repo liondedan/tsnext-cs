@@ -35,7 +35,7 @@ const index: React.SFC = () => {
         body="Escape to a beautifully finished campsite small-holding located in a National Trust Conservation area with uninterrupted views of the north Pembrokeshire Coast National Park. Relax and experience the magic of a holiday in the heart of Wales"
         ctaText="Book Now"
         ctaLink="/book-now"
-        url="http://coastalstay.co.uk/wp-content/uploads/2015/02/camping-pembrokeshire.jpg"
+        url="camping-pembrokeshire-header.jpg"
       />
 
       <FeatureLogo />
@@ -104,7 +104,7 @@ const index: React.SFC = () => {
             )}
           </Grid>
           <Grid item xs={12}>
-            <ButtonBase url="/b" />
+            <ButtonBase url="/contact" />
           </Grid>
         </Grid>
       </ContainerWrap>
@@ -115,7 +115,7 @@ const index: React.SFC = () => {
             reverseOrder
             body={HomePage.feature_2}
             cta="dog"
-            imageURL="https://www.visitpembrokeshire.com/wp-content/uploads/28-Whitesands_Ramsey_Carn_Llidi-1500x1000.jpg"
+            imageURL="pembrokeshire-camping-location.jpg"
           />
         </Grid>
       </ContainerWrap>
@@ -217,7 +217,7 @@ const index: React.SFC = () => {
         title="Ready to go camping in Pembrokeshire?"
         body="Feel free to get in touch if you have any other questions, we are more than happy to chat. You can check our availability here, we fill up fast for Easter, Summer and Christmas, so book early to save dissapointment."
         ctaText="Book your camping trip"
-        ctaLink="/book-now"
+        ctaLink="/contact"
       />
     </>
   );

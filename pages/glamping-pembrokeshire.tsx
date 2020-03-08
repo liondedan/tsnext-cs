@@ -34,7 +34,7 @@ const index: React.SFC = () => {
         body="Providing just enough luxury to keep you comfortable and content, but not too much that you forget you’re camping in nature"
         ctaText="Book Now"
         ctaLink="/book-now"
-        url="http://coastalstay.co.uk/wp-content/uploads/2017/06/bell-tent-glamping.jpg"
+        url="bell-tent-glamping.jpg"
       />
 
       <Container maxWidth="lg" style={{ paddingTop: 10, paddingBottom: 10 }}>
@@ -102,123 +102,60 @@ const index: React.SFC = () => {
       <ContainerWrap>
         <Grid container spacing={5}>
           <ImageText
-            title="Where are we located?"
+            title="Pembrokeshire Glamping"
             reverseOrder
             body={[cc.f_2_1, cc.f_2_2]}
-            imageURL="https://www.visitpembrokeshire.com/wp-content/uploads/28-Whitesands_Ramsey_Carn_Llidi-1500x1000.jpg"
+            imageURL="/bell-tent-glamping.jpg"
           />
         </Grid>
       </ContainerWrap>
       <ContainerWrap invert>
         <Grid container spacing={5}>
           <ImageText
-            title="What is there to do nearby?"
+            title="Just bring yourselves"
             body={[cc.f_3_1, cc.f_3_2]}
             cta="dog"
-            imageURL="/things_to_do.png"
+            imageURL="tipi_sea_view.png"
           />
         </Grid>
       </ContainerWrap>
       <ContainerWrap>
         <Grid container spacing={5}>
           <ImageText
-            title="What is there to do nearby?"
+            title="Bathroom & Facilities"
             reverseOrder
             body={[cc.f_4_1, cc.f_4_2]}
             cta="dog"
-            imageURL="/things_to_do.png"
+            imageURL="bathroom-facilities-glamping.png"
           />
         </Grid>
       </ContainerWrap>
       <ContainerWrap invert>
         <Grid container spacing={5}>
           <ImageText
-            title="What is there to do nearby?"
             body={[cc.f_5_1, cc.f_5_2]}
+            title="Animals & Wildlife"
+            imageURL="/bell_tell_interior_view.png"
             cta="dog"
-            imageURL="/things_to_do.png"
           />
         </Grid>
       </ContainerWrap>
       <ContainerWrap>
         <Grid container spacing={5}>
           <ImageText
-            title="What is there to do nearby?"
+            title="The Local Area"
             reverseOrder
             body={[cc.f_6_1, cc.f_6_2]}
             cta="dog"
-            imageURL="/things_to_do.png"
+            imageURL="tipi_sunset_glamping.png"
           />
         </Grid>
       </ContainerWrap>
       <ContainerWrap invert>
         <Grid container spacing={5}>
           <ImageText
-            title="What is there to do nearby?"
-            body={[cc.f_7_1, cc.f_7_2]}
-            cta="dog"
-            imageURL="/things_to_do.png"
-          />
-        </Grid>
-      </ContainerWrap>
-      <ContainerWrap>
-        <Grid container spacing={5}>
-          <ImageText
-            title="What is there to do nearby?"
-            body={[cc.f_8_1, cc.f_8_2]}
-            cta="dog"
-            imageURL="/things_to_do.png"
-            reverseOrder
-          />
-        </Grid>
-      </ContainerWrap>
-      <ContainerWrap invert>
-        <Grid container spacing={5}>
-          <ImageText
-            title="What is there to do nearby?"
-            body={[cc.f_9_1, cc.f_9_2]}
-            cta="dog"
-            imageURL="/things_to_do.png"
-          />
-        </Grid>
-      </ContainerWrap>
-      <ContainerWrap>
-        <Grid container spacing={5}>
-          <ImageText
-            title="What is there to do nearby?"
+            title="Pembrokeshire Glamping Bell Tent"
             body={[cc.f_10_1, cc.f_10_2]}
-            cta="dog"
-            reverseOrder
-            imageURL="/things_to_do.png"
-          />
-        </Grid>
-      </ContainerWrap>
-      <ContainerWrap invert>
-        <Grid container spacing={5}>
-          <ImageText
-            title="What is there to do nearby?"
-            body={[cc.f_11_1, cc.f_11_2]}
-            cta="dog"
-            imageURL="/things_to_do.png"
-          />
-        </Grid>
-      </ContainerWrap>
-      <ContainerWrap>
-        <Grid container spacing={5}>
-          <ImageText
-            title="What is there to do nearby?"
-            body={cc.f_12_1}
-            cta="dog"
-            imageURL="/things_to_do.png"
-            reverseOrder
-          />
-        </Grid>
-      </ContainerWrap>
-      <ContainerWrap invert>
-        <Grid container spacing={5}>
-          <ImageText
-            title="What is there to do nearby?"
-            body={cc.f_13}
             cta="dog"
             imageURL="/things_to_do.png"
           />

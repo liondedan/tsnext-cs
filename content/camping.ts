@@ -6,7 +6,7 @@ const Camping = {
   pitch campfire. Fires are only to be lit in the provided fire pit.`,
   f_3_1: `We have five star rated bathroom facilities with a double size hot water power shower, toilet and mirror / wash hand basin. In addition to our luxury bathroom, we have a new back to basics toilet and shower block with three hot water showers and two toilets.`,
   f_3_2: `We also have washing up facilities outside for cleaning dishes and an extended garden water hose for spraying down if necessary. If you’re looking for storage we are adding a couple of lockers this year so people can lock away their valuables when they leave the campsite for the day.`,
-  f_4_1: `Who doesn’t love a great picnic? So to accommodate, we’ve built a handful of large oversized picnic benches to fit the entire family! They overlooks our lake and meadow with the sea as a distant backdrop. We are hoping to add a few more this season as well as some decking areas.`,
+  f_4_1: `Who doesn’t love a great picnic? So to accommodate, we’ve built large oversized picnic benches for each pitch - large enough to fit the entire family! Enjoy your food whilst overlooking a meadow of cows with the sea as a distant backdrop.`,
 
   f_5_1: `We are blessed to be in a part of the world where wildlife is in abundance, the Pembrokeshire National park. We also happen to be right next to a National Trust Conservation area.`,
   f_5_2: `If you’re keen on bird watching then there is plenty to see here. The field under our campsite often has young calf’s during the summer months. On the campsite we have our own resident pair of goats as well as two miniature Shetland ponies, so if you have any food to spare, the goats will be more than happy to eat your leftovers.`,
@@ -22,7 +22,7 @@ const Camping = {
   f_10_2: `If you are looking for a hi-tech holiday park then we are probably not for you, but if you want your children to know how to build a den or forage for blackberries then we probably are.`,
   f_11_1: `An ideal and tranquil base for viewing the attractions of Pembrokeshire, yet only one a few miles from the shops, pubs and restaurants of St Davids.`,
   f_11_2: `If this sounds like a campsite you’d be interested in, check out our camping prices or get in touch.`,
-  f_12_1: `A few years back we added our own wood fired pizza oven so we could make food for friends and family - then we opened now and again to give pizza to campers. Due to the popularity and fantastic feedback - our pizza oven is open most evenings during the high season for take away`,
+  f_12_1: `A few years back we added our own wood fired pizza oven so we could make food for friends and family - then we opened ocassionally to give pizza to campers...it went so well our pizza oven is now open every evening during the high season for take away`,
   f_13: `If you're looking for a twist of luxury, take a look at our fully catered bell tents. They are furnished with everything you need, double bed, cooking equipment, towels and we can even bring coffee to you in bed in the morning.`,
 };
 

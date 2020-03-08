@@ -84,13 +84,6 @@ nextApp.prepare().then(() => {
         res.status(404);
         res.send('There was an error sending the email', error);
       });
-
-    // if (!req.body) return res.sendStatus(400);
-    // res
-    //   .status(200)
-    //   .send('Success, Your registration has been saved to the database!');
-    // console.log(res);
-    // console.log('submitted contact form');
   });
 
   // Default catch-all renders Next app

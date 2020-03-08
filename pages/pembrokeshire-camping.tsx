@@ -21,8 +21,8 @@ const index: React.SFC = () => {
         subtitle="Camping in West Wales"
         body="Providing just enough luxury to keep you comfortable and content, but not too much that you forget you’re camping in nature"
         ctaText="Book Now"
-        ctaLink="/book-now"
-        url="http://coastalstay.co.uk/wp-content/uploads/2016/08/pembrokeshire-camping-1.jpg"
+        ctaLink="/contact"
+        url="pembrokeshire-camping-coastal-view.jpg"
       />
 
       <FeatureLogo />
@@ -82,72 +82,72 @@ const index: React.SFC = () => {
       <ContainerWrap>
         <Grid container spacing={5}>
           <ImageText
-            title="Where are we located?"
+            title="Pembrokeshire Camping"
             reverseOrder
             body={[cc.f_2_1, cc.f_2_2]}
-            imageURL="https://www.visitpembrokeshire.com/wp-content/uploads/28-Whitesands_Ramsey_Carn_Llidi-1500x1000.jpg"
+            imageURL="campsite-fire-wales.jpg"
           />
         </Grid>
       </ContainerWrap>
       <ContainerWrap invert>
         <Grid container spacing={5}>
           <ImageText
-            title="What is there to do nearby?"
+            title="Bathroom & Facilities"
             body={[cc.f_3_1, cc.f_3_2]}
             cta="dog"
-            imageURL="/things_to_do.png"
+            imageURL="/bathroom-facilities.png"
           />
         </Grid>
       </ContainerWrap>
       <ContainerWrap>
         <Grid container spacing={5}>
           <ImageText
-            title="What is there to do nearby?"
+            title="Picnic Areas"
             reverseOrder
             body={cc.f_4_1}
             cta="dog"
-            imageURL="/things_to_do.png"
+            imageURL="/picnic-area.png"
           />
         </Grid>
       </ContainerWrap>
       <ContainerWrap invert>
         <Grid container spacing={5}>
           <ImageText
-            title="What is there to do nearby?"
+            title="Animals and Wildlife"
             body={[cc.f_5_1, cc.f_5_2]}
             cta="dog"
-            imageURL="/things_to_do.png"
+            imageURL="/animals-wildlife-campsite.png"
           />
         </Grid>
       </ContainerWrap>
       <ContainerWrap>
         <Grid container spacing={5}>
           <ImageText
-            title="What is there to do nearby?"
+            title="Pembrokeshire Local Area"
             reverseOrder
             body={[cc.f_6_1, cc.f_6_2]}
             cta="dog"
-            imageURL="/things_to_do.png"
+            imageURL="/the-local-area.png"
           />
         </Grid>
       </ContainerWrap>
       <ContainerWrap invert>
         <Grid container spacing={5}>
           <ImageText
-            title="What is there to do nearby?"
+            title="Welsh Adventure Activities"
             body={[cc.f_7_1, cc.f_7_2]}
             cta="dog"
-            imageURL="/things_to_do.png"
+            imageURL="/adventure-activities.png"
           />
         </Grid>
       </ContainerWrap>
       <ContainerWrap>
         <Grid container spacing={5}>
           <ImageText
-            title="What is there to do nearby?"
+            title="Walking and Cycling"
             body={[cc.f_8_1, cc.f_8_2]}
             cta="dog"
-            imageURL="/things_to_do.png"
+            imageURL="/walking-cycling-pembrokeshire.png"
             reverseOrder
           />
         </Grid>
@@ -155,56 +155,46 @@ const index: React.SFC = () => {
       <ContainerWrap invert>
         <Grid container spacing={5}>
           <ImageText
-            title="What is there to do nearby?"
+            title="Getting around & amenities"
             body={[cc.f_9_1, cc.f_9_2]}
             cta="dog"
-            imageURL="/things_to_do.png"
+            imageURL="/pembrokeshire-walking-campsite.jpg"
           />
         </Grid>
       </ContainerWrap>
       <ContainerWrap>
         <Grid container spacing={5}>
           <ImageText
-            title="What is there to do nearby?"
+            title="Children & Dogs"
             body={[cc.f_10_1, cc.f_10_2]}
             cta="dog"
             reverseOrder
-            imageURL="/things_to_do.png"
+            imageURL="/children-dogs.png"
           />
         </Grid>
       </ContainerWrap>
       <ContainerWrap invert>
         <Grid container spacing={5}>
           <ImageText
-            title="What is there to do nearby?"
-            body={[cc.f_11_1, cc.f_11_2]}
-            cta="dog"
-            imageURL="/things_to_do.png"
-          />
-        </Grid>
-      </ContainerWrap>
-      <ContainerWrap>
-        <Grid container spacing={5}>
-          <ImageText
-            title="What is there to do nearby?"
+            title="Wooden Fired Pizza"
             body={cc.f_12_1}
             cta="dog"
-            imageURL="/things_to_do.png"
+            imageURL="/pizza-oven-camping.jpg"
             reverseOrder
           />
         </Grid>
       </ContainerWrap>
-      <ContainerWrap invert>
+      <ContainerWrap>
         <Grid container spacing={5}>
           <ImageText
-            title="What is there to do nearby?"
-            body={cc.f_13}
+            title="Pembrokeshire Camping Summary"
+            body={[cc.f_11_1, cc.f_11_2]}
             cta="dog"
-            imageURL="/things_to_do.png"
+            imageURL="/pembrokeshire-camping-summary.png"
           />
         </Grid>
       </ContainerWrap>
-      <ContainerWrap>
+      <ContainerWrap invert>
         <Grid>
           <Typography
             style={{ marginTop: 40, textAlign: 'center' }}
@@ -214,54 +204,39 @@ const index: React.SFC = () => {
             Frequently Asked Questions
           </Typography>
           <Typography style={{ marginTop: 40 }} variant="h5" gutterBottom>
-            Is the campsite close to St Davids
+            How many pitches do you have?
           </Typography>
           <Typography style={{ marginTop: 10 }} variant="body2" gutterBottom>
-            We are a 15 minute drive from St Davids, the smallest city in
-            Britain, with its wealth of restaurants, local shops and the famous
-            St Davids Cathedral – a site of pilgrimage and worship for more than
-            800 years. In the opposite direction we are six miles from Fishguard
-            and the harbour of Goodwich, also the location of the Irish ferry
-            crossing.
+            We've only got 28 pitches - as we wanted to give each pitch enough
+            space and personality to make your holiday feel like you're a
+            valuable guest, and not just rammed right next to each other like
+            sardines.
           </Typography>
           <Divider style={{ marginTop: 30 }} />
           <Typography style={{ marginTop: 40 }} variant="h5" gutterBottom>
-            Is the campsite close to Sea?
+            How many bathrooms are there?
           </Typography>
           <Typography style={{ marginTop: 10 }} variant="body2" gutterBottom>
-            The campsite is just under a mile to the coast via road and has
-            uninterrupted views of the north Pembrokeshire Coast National Park.
-            There is a footpath that leads you down to the beach that can be
-            accessed from just ourside the campsite.
+            We have one unisex luxury bathroom with combined shower and toilet,
+            and then seperate male and female bathrooms, each with three toilets
+            and showers - so it should never feel busy.
           </Typography>
           <Divider style={{ marginTop: 30 }} />
           <Typography style={{ marginTop: 40 }} variant="h5" gutterBottom>
-            What are the nearest beaches to the campsite?
+            Do the showers have hot water?
           </Typography>
           <Typography style={{ marginTop: 10 }} variant="body2" gutterBottom>
-            Abereiddy is our nearest beach, the home of the blue lagoon. A
-            fifteen minute walk from Abereiddy along the coast takes you to a
-            secluded beach which is unaccesable to vechiles. If you take a drive
-            towards St Davids, Whitesands beach is 4 miles away form the
-            campsite.
+            This is glamping - of course they have hot water! Our washing
+            facitilies also all have hot water.
           </Typography>
           <Divider style={{ marginTop: 30 }} />
           <Typography style={{ marginTop: 40 }} variant="h5" gutterBottom>
-            Where can we eat nearby?
+            How often is the pizza oven open
           </Typography>
           <Typography style={{ marginTop: 10 }} variant="body2" gutterBottom>
-            Porthgain, a small fishing village, is under a mile away from the
-            campsite and has great a fantastic fish restaurant called 'The Shed'
-            and a cozy pub 'The Sloop'. If you take a drive into St Davids a
-            fantastic restaurant is 'The Cwtch' (which means to hug in Welsh).
-          </Typography>
-          <Divider style={{ marginTop: 30 }} />
-          <Typography style={{ marginTop: 40 }} variant="h5" gutterBottom>
-            How can we get around?
-          </Typography>
-          <Typography style={{ marginTop: 10 }} variant="body2" gutterBottom>
-            A frequent bus service stops directly outside the campsite and runs
-            to and from St Davids, Fishguard and Haverfordwest.{' '}
+            The pizza oven is open every night, and sometimes for lunch, during
+            the high season. We use local products where possible and use oak
+            logs to light the fire.
           </Typography>
           <Divider style={{ marginTop: 30 }} />
           <Typography style={{ marginTop: 40 }} variant="h5" gutterBottom>
@@ -292,7 +267,7 @@ const index: React.SFC = () => {
         title="Ready to go camping in Pembrokeshire?"
         body="Feel free to get in touch if you have any other questions, we are more than happy to chat. You can check our availability here, we fill up fast for Easter, Summer and Christmas, so book early to save dissapointment."
         ctaText="Book your camping trip"
-        ctaLink="/book-now"
+        ctaLink="/contact"
       />
     </>
   );
