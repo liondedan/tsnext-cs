@@ -75,7 +75,7 @@ const index: React.SFC = () => {
         subtitle="Award Winning Campsite"
         body=""
         ctaText="Book Now"
-        ctaLink="/book-now"
+        ctaLink="/contact-us"
         url="camping-pembrokeshire-header.jpg"
       />
       <FeatureLogo />

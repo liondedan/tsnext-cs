@@ -20,7 +20,7 @@ const index: React.SFC = () => {
         subtitle="Find your epic"
         body=""
         ctaText="Book Now"
-        ctaLink="/contact"
+        ctaLink="/contact-us"
         url="pembrokeshire-camping-coastal-view.jpg"
       />
 
@@ -117,7 +117,7 @@ const index: React.SFC = () => {
         title="Ready to go camping in Pembrokeshire?"
         body="Feel free to get in touch if you have any other questions, we are more than happy to chat. You can check our availability here, we fill up fast for Easter, Summer and Christmas, so book early to save dissapointment."
         ctaText="Book your camping trip"
-        ctaLink="/contact"
+        ctaLink="/contact-us"
       />
     </>
   );

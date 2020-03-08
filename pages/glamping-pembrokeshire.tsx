@@ -33,7 +33,7 @@ const index: React.SFC = () => {
         subtitle="Camping in West Wales"
         body="Providing just enough luxury to keep you comfortable and content, but not too much that you forget you’re camping in nature"
         ctaText="Book Now"
-        ctaLink="/book-now"
+        ctaLink="/contact-us"
         url="bell-tent-glamping.jpg"
       />
 
@@ -249,7 +249,7 @@ const index: React.SFC = () => {
         title="Ready to go camping in Pembrokeshire?"
         body="Feel free to get in touch if you have any other questions, we are more than happy to chat. You can check our availability here, we fill up fast for Easter, Summer and Christmas, so book early to save dissapointment."
         ctaText="Book your camping trip"
-        ctaLink="/book-now"
+        ctaLink="/contact-us"
       />
     </>
   );

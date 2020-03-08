@@ -34,7 +34,7 @@ const index: React.SFC = () => {
         subtitle="Award Winning Campsite"
         body="Escape to a beautifully finished campsite small-holding located in a National Trust Conservation area with uninterrupted views of the north Pembrokeshire Coast National Park. Relax and experience the magic of a holiday in the heart of Wales"
         ctaText="Book Now"
-        ctaLink="/book-now"
+        ctaLink="/contact-us"
         url="camping-pembrokeshire-header.jpg"
       />
 
@@ -217,7 +217,7 @@ const index: React.SFC = () => {
         title="Ready to go camping in Pembrokeshire?"
         body="Feel free to get in touch if you have any other questions, we are more than happy to chat. You can check our availability here, we fill up fast for Easter, Summer and Christmas, so book early to save dissapointment."
         ctaText="Book your camping trip"
-        ctaLink="/contact"
+        ctaLink="/contact-us"
       />
     </>
   );
