@@ -15,11 +15,22 @@ const dev = process.env.NODE_ENV !== 'production';
 const nextApp = nextFrame({ dir: '.', dev });
 const nextHandler = nextApp.getRequestHandler();
 
+// @ts-ignore
+function wwwRedirect(req: any, res: any, next: any) {
+  if (req.headers.host.slice(0, 4) === 'www.') {
+    var newHost = req.headers.host.slice(4);
+    return res.redirect(301, req.protocol + '://' + newHost + req.originalUrl);
+  }
+  next();
+}
+
 nextApp.prepare().then(() => {
   const server: express.Application = express();
   server.use(express.json());
   server.use(express.urlencoded({ extended: true }));
   server.use(sslRedirect());
+  server.set('trust proxy', true);
+  server.use(wwwRedirect);
 
   // Routing
   server.use('/users', routes.user);
