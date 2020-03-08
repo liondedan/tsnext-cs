@@ -102,7 +102,7 @@ const ButtonAppBar: React.SFC = ({}) => {
         <Link className={classes.mobileLink} href="/pembrokeshire-camping">
           <ListItem button>Pembrokeshire Camping</ListItem>
         </Link>
-        <Link className={classes.mobileLink} href="/glamping-Pembrokeshire">
+        <Link className={classes.mobileLink} href="/glamping-pembrokeshire">
           <ListItem button>Glamping Camping</ListItem>
         </Link>
         <Link className={classes.mobileLink} href="/pricing">
@@ -111,11 +111,13 @@ const ButtonAppBar: React.SFC = ({}) => {
         <Link className={classes.mobileLink} href="/pembrokeshire-activities">
           <ListItem button>Pembrokeshire Activities</ListItem>
         </Link>
+        //{' '}
         <Link className={classes.mobileLink} href="/location">
-          <ListItem button>Location</ListItem>
+          // <ListItem button>Location</ListItem>
+          //{' '}
         </Link>
         <Divider />
-        <Link className={classes.mobileLink} href="/contact">
+        <Link className={classes.mobileLink} href="/contact-us">
           <ListItem button>Book Now</ListItem>
         </Link>
       </List>
@@ -174,12 +176,13 @@ const ButtonAppBar: React.SFC = ({}) => {
                   Pricing
                 </MenuItem>
                 <MenuItem
-                  onClick={() => handleOptionClick('/pembrokeshire-adventure')}
+                  onClick={() => handleOptionClick('/pembrokeshire-activities')}
                 >
                   Pembrokeshire Adventure
                 </MenuItem>
+                //{' '}
                 <MenuItem onClick={() => handleOptionClick('/location')}>
-                  Location
+                  // Location //{' '}
                 </MenuItem>
               </Menu>
               <Link
@@ -219,7 +222,7 @@ const ButtonAppBar: React.SFC = ({}) => {
                 Information
               </Link>
               <Link
-                href="/contact"
+                href="/contact-us"
                 color="inherit"
                 className={classes.button}
                 variant="body2"
