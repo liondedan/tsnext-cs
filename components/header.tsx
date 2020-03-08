@@ -111,11 +111,6 @@ const ButtonAppBar: React.SFC = ({}) => {
         <Link className={classes.mobileLink} href="/pembrokeshire-activities">
           <ListItem button>Pembrokeshire Activities</ListItem>
         </Link>
-        //{' '}
-        <Link className={classes.mobileLink} href="/location">
-          // <ListItem button>Location</ListItem>
-          //{' '}
-        </Link>
         <Divider />
         <Link className={classes.mobileLink} href="/contact-us">
           <ListItem button>Book Now</ListItem>
@@ -179,10 +174,6 @@ const ButtonAppBar: React.SFC = ({}) => {
                   onClick={() => handleOptionClick('/pembrokeshire-activities')}
                 >
                   Pembrokeshire Adventure
-                </MenuItem>
-                //{' '}
-                <MenuItem onClick={() => handleOptionClick('/location')}>
-                  // Location //{' '}
                 </MenuItem>
               </Menu>
               <Link

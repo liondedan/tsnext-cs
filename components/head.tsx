@@ -6,11 +6,11 @@ import React from 'react';
 const defaultSEO = {
   title: 'Coastal Stay - Pembrokeshire Camping',
   description:
-    'Gigs in intimate spaces around the world. Sofar Sounds is a global movement which brings the magic back to live music. Sign up today to host, play or attend.',
+    'Escape to a beautifully finished campsite small-holding located in a National Trust Conservation area with uninterrupted views of the north Pembrokeshire Coast National Park.',
   image:
     '//dax2lgcd0wbaz.cloudfront.net/assets/sofar-share-13e30a152beb75c98c298a8ade6a511fe8514405783b2c38a4bdc116c1bfa2c6.jpg',
-  siteName: 'Sofar Sounds',
-  url: 'https://www.sofarsounds.com',
+  siteName: 'Coastal Stay',
+  url: 'https://www.coastalstay.co.uk',
 };
 
 const Meta: React.SFC<MetaProps> = ({ title, description, image, url }) => (
