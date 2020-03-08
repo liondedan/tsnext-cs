@@ -11,6 +11,10 @@ export default class MyDocument extends Document {
         <Head>
           {/* PWA primary color */}
           <link rel="shortcut icon" href="/favicon.ico" />
+          <meta
+            name="google-site-verification"
+            content="QFmL1uY8dNqwQjApaLvjch6AYY7tTcvaNo-vWN-TDF8"
+          />
           <meta name="theme-color" content={theme.palette.primary.main} />
         </Head>
         <body>
