@@ -1,7 +1,6 @@
 import express from 'express';
 const nextFrame = require('next');
 const url = require('url');
-const forceDomain = require('forcedomain');
 require('dotenv').config();
 // import moment from 'moment'
 import { connectDb } from './models';
@@ -17,11 +16,6 @@ const nextHandler = nextApp.getRequestHandler();
 
 nextApp.prepare().then(() => {
   const server: express.Application = express();
-  server.use(
-    forceDomain({
-      hostname: 'www.coastalstay.co.uk',
-    })
-  );
   server.use(express.json());
   server.use(express.urlencoded({ extended: true }));
 
