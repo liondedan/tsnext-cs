@@ -20,7 +20,6 @@ nextApp.prepare().then(() => {
   server.use(
     forceDomain({
       hostname: 'www.coastalstay.co.uk',
-      protocol: 'https',
     })
   );
   server.use(express.json());
