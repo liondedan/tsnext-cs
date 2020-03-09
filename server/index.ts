@@ -1,7 +1,6 @@
 import express from 'express';
 const nextFrame = require('next');
 const url = require('url');
-const sslRedirect = require('heroku-ssl-redirect');
 require('dotenv').config();
 // import moment from 'moment'
 import { connectDb } from './models';
@@ -19,7 +18,6 @@ nextApp.prepare().then(() => {
   const server: express.Application = express();
   server.use(express.json());
   server.use(express.urlencoded({ extended: true }));
-  server.use(sslRedirect());
 
   // Routing
   server.use('/users', routes.user);
