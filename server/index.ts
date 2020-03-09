@@ -1,6 +1,7 @@
 import express from 'express';
 const nextFrame = require('next');
 const url = require('url');
+const forceDomain = require('forcedomain');
 require('dotenv').config();
 // import moment from 'moment'
 import { connectDb } from './models';
@@ -14,23 +15,16 @@ const dev = process.env.NODE_ENV !== 'production';
 const nextApp = nextFrame({ dir: '.', dev });
 const nextHandler = nextApp.getRequestHandler();
 
-// @ts-ignore
-function wwwRedirect(req: any, res: any, next: any) {
-  console.log(req.headers.host);
-  console.log(req.protocol, ' req protocol');
-  if (req.headers.host.slice(0, 4) === 'www.') {
-    const newHost = req.headers.host.slice(4);
-    return res.redirect(301, req.protocol + '://' + newHost + req.originalUrl);
-  }
-  next();
-}
-
 nextApp.prepare().then(() => {
   const server: express.Application = express();
+  server.use(
+    forceDomain({
+      hostname: 'www.coastalstay.co.uk',
+      protocol: 'https',
+    })
+  );
   server.use(express.json());
   server.use(express.urlencoded({ extended: true }));
-  server.set('trust proxy', true);
-  server.use(wwwRedirect);
 
   // Routing
   server.use('/users', routes.user);
