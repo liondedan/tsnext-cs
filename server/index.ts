@@ -1,7 +1,6 @@
 import express from 'express';
 const nextFrame = require('next');
 const url = require('url');
-const sslRedirect = require('heroku-ssl-redirect');
 require('dotenv').config();
 // import moment from 'moment'
 import { connectDb } from './models';
@@ -18,6 +17,7 @@ const nextHandler = nextApp.getRequestHandler();
 // @ts-ignore
 function wwwRedirect(req: any, res: any, next: any) {
   console.log(req.headers.host);
+  console.log(req.protocol, ' req protocol');
   if (req.headers.host.slice(0, 4) === 'www.') {
     const newHost = req.headers.host.slice(4);
     return res.redirect(301, req.protocol + '://' + newHost + req.originalUrl);
@@ -29,7 +29,6 @@ nextApp.prepare().then(() => {
   const server: express.Application = express();
   server.use(express.json());
   server.use(express.urlencoded({ extended: true }));
-  server.use(sslRedirect());
   server.set('trust proxy', true);
   server.use(wwwRedirect);
 
