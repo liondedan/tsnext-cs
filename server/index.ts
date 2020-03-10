@@ -14,6 +14,13 @@ const dev = process.env.NODE_ENV !== 'production';
 const nextApp = nextFrame({ dir: '.', dev });
 const nextHandler = nextApp.getRequestHandler();
 
+const sitemapOptions = {
+  root: __dirname + '/static/sitemap/',
+  headers: {
+    'Content-Type': 'text/xml;charset=UTF-8',
+  },
+};
+
 nextApp.prepare().then(() => {
   const server: express.Application = express();
   server.use(express.json());
@@ -24,6 +31,10 @@ nextApp.prepare().then(() => {
   server.use('/messages', routes.message);
   server.get('/', (req: any, res: any) => {
     return nextApp.render(req, res, '/', req.query);
+  });
+
+  server.get('/sitemap.xml', ({ res }: any) => {
+    res.status(200).sendFile('sitemap.xml', sitemapOptions);
   });
 
   server.get('/api/a', ({ res }: any) => {
