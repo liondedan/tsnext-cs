@@ -1,4 +1,5 @@
 import express from 'express';
+const forceDomain = require('forcedomain');
 const nextFrame = require('next');
 const url = require('url');
 require('dotenv').config();
@@ -23,6 +24,12 @@ const sitemapOptions = {
 
 nextApp.prepare().then(() => {
   const server: express.Application = express();
+  server.use(
+    forceDomain({
+      hostname: 'www.coastalstay.co.uk',
+      protocol: 'https',
+    })
+  );
   server.use(express.json());
   server.use(express.urlencoded({ extended: true }));
 
