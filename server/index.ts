@@ -1,9 +1,8 @@
 import express from 'express';
-const forceDomain = require('forcedomain');
 const nextFrame = require('next');
 const url = require('url');
+const sslRedirect = require('heroku-ssl-redirect');
 require('dotenv').config();
-// import moment from 'moment'
 import { connectDb } from './models';
 import routes from './routes';
 import sgMail from '@sendgrid/mail';
@@ -15,33 +14,17 @@ const dev = process.env.NODE_ENV !== 'production';
 const nextApp = nextFrame({ dir: '.', dev });
 const nextHandler = nextApp.getRequestHandler();
 
-const sitemapOptions = {
-  root: __dirname + '/static/sitemap/',
-  headers: {
-    'Content-Type': 'text/xml;charset=UTF-8',
-  },
-};
-
 nextApp.prepare().then(() => {
   const server: express.Application = express();
-  server.use(
-    forceDomain({
-      hostname: 'www.coastalstay.co.uk',
-      protocol: 'https',
-    })
-  );
   server.use(express.json());
   server.use(express.urlencoded({ extended: true }));
+  server.use(sslRedirect());
 
   // Routing
   server.use('/users', routes.user);
   server.use('/messages', routes.message);
   server.get('/', (req: any, res: any) => {
     return nextApp.render(req, res, '/', req.query);
-  });
-
-  server.get('/sitemap.xml', ({ res }: any) => {
-    res.status(200).sendFile('sitemap.xml', sitemapOptions);
   });
 
   server.get('/api/a', ({ res }: any) => {
