@@ -72,7 +72,7 @@ nextApp.prepare().then(() => {
   server.use('/api/contact', (req: any, res: any) => {
     const emailHtml = basicContact(req.body);
     const msg = {
-      to: 'info@thinkdan.co.uk',
+      to: 'info@coastalstay.co.uk',
       from: 'info@coastalstay.co.uk',
       subject: 'Coastal Stay: Reserve your booking',
       text: 'Coastal Stay: Reserve your booking',
