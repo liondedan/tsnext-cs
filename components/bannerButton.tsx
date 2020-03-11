@@ -4,7 +4,7 @@ import ButtonBase from '@material-ui/core/ButtonBase';
 import Typography from '@material-ui/core/Typography';
 
 const image = {
-  url: '/things_to_do.png',
+  url: '/things_to_do_large.png',
   title: 'Check Availability',
   width: '100%',
 };
