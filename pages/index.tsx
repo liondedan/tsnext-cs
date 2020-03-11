@@ -125,7 +125,7 @@ const index: React.SFC = () => {
             title="What is there to do nearby?"
             body={HomePage.feature_3}
             cta="dog"
-            imageURL="/things_to_do.png"
+            imageURL="/things_to_do_small.png"
           />
         </Grid>
       </ContainerWrap>
