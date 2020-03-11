@@ -104,7 +104,7 @@ const index: React.SFC = () => {
             )}
           </Grid>
           <Grid item xs={12}>
-            <ButtonBase url="/contact" />
+            <ButtonBase url="/contact-us" />
           </Grid>
         </Grid>
       </ContainerWrap>
