@@ -13,9 +13,10 @@ router.get('/:messageId', async (req, res) => {
 });
 
 router.post('/', async (req, res) => {
+  console.log('mesaages post');
   const message = await models.Message.create({
     text: req.body.text,
-    user: req.context.me.id,
+    user: 'cat',
   });
 
   return res.send(message);

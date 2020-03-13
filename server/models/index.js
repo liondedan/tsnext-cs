@@ -3,6 +3,7 @@ require('dotenv').config();
 
 import User from './user';
 import Message from './message';
+import Person from './person';
 
 // const url =
 //   'mongodb://admin_dan:danonly06@ds061611.mlab.com:61611/heroku_pzk57mmp';
@@ -16,7 +17,7 @@ const connectDb = () => {
   });
 };
 
-const models = { User, Message };
+const models = { User, Message, Person };
 
 export { connectDb };
 

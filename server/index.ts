@@ -6,7 +6,6 @@ require('dotenv').config();
 import { connectDb } from './models';
 import routes from './routes';
 import sgMail from '@sendgrid/mail';
-import paymentRequest from './emailTpl/paymentRequest';
 import basicContact from './emailTpl/basicContact';
 sgMail.setApiKey(process.env.SG_MAIL || '');
 const port: any = process.env.PORT || 3000;
@@ -28,6 +27,8 @@ nextApp.prepare().then(() => {
   // Routing
   server.use('/users', routes.user);
   server.use('/messages', routes.message);
+  server.use('/api/auth', routes.auth);
+
   server.get('/', (req: any, res: any) => {
     return nextApp.render(req, res, '/', req.query);
   });
@@ -36,41 +37,9 @@ nextApp.prepare().then(() => {
     res.end(JSON.stringify({ a: 1 }));
   });
 
-  server.post('/api/email', (req: any, res: any) => {
-    res.send({ express: 'Reserve your booking' });
-    console.log(req.body);
-    const reqBody = {
-      arrival: '12-02-2019',
-      departureDate: '12-02-2019',
-      remainder: 12,
-      deposit: 123,
-      total: 34,
-    };
-
-    const emailHtml = paymentRequest(reqBody);
-
-    const msg = {
-      // to: req.body.to,
-      to: 'info@thinkdan.co.uk',
-      from: 'info@coastalstay.co.uk',
-      subject: 'Coastal Stay: Reserve your booking',
-      text: 'Coastal Stay: Reserve your booking',
-      html: emailHtml,
-    };
-
-    console.log(process.env.SG_MAIL);
-    sgMail
-      .send(msg)
-      .then(() => {
-        return res.send('Email has been sent!');
-      })
-      .catch((error: any) => {
-        return res.send('There was an error sending the email', error);
-      });
-  });
-  //@ts-ignore
   server.use('/api/contact', (req: any, res: any) => {
     const emailHtml = basicContact(req.body);
+    console.log(req.body);
     const msg = {
       to: 'info@coastalstay.co.uk',
       from: 'info@coastalstay.co.uk',
