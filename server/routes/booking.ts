@@ -42,6 +42,15 @@ router.get('/:bookingId', async (req, res) => {
   return res.send(booking);
 });
 
+router.delete('/:bookingId', async (req, res) => {
+  const booking = await models.Booking.findById(req.params.bookingId);
+  let result = null;
+  if (booking) {
+    result = await booking.remove();
+  }
+  return res.send(result);
+});
+
 router.post('/', async ({ res, next }: any) => {
   try {
     const booking = new models.Booking(fakeData);
