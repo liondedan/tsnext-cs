@@ -1,4 +1,5 @@
 import express from 'express';
+const cookieParser = require('cookie-parser');
 const nextFrame = require('next');
 const url = require('url');
 const forceDomain = require('forcedomain');
@@ -22,6 +23,7 @@ nextApp.prepare().then(() => {
     })
   );
   server.use(express.json());
+  server.use(cookieParser());
   server.use(express.urlencoded({ extended: true }));
 
   // Routing

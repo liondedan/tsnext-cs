@@ -11,9 +11,7 @@ router.use(bodyParser.urlencoded({ extended: false }));
 router.use(bodyParser.json());
 
 router.post('/register', async (req, res, next) => {
-  console.log(req.body);
   const hashedPassword = bcrypt.hashSync(req.body.password, 8);
-
   try {
     const person = new models.Person({
       name: req.body.name,
@@ -26,7 +24,10 @@ router.post('/register', async (req, res, next) => {
     var token = jwt.sign({ id: ret._id }, secret, {
       expiresIn: 86400, // expires in 24 hours
     });
-    res.status(200).send({ auth: true, token: token });
+    res
+      .cookie('token', token, { httpOnly: true })
+      .status(200)
+      .send({ auth: true, token: token });
   } catch (error) {
     // Passes errors into the error handler
     return next(error);
@@ -46,7 +47,10 @@ router.post('/login', function(req, res) {
       expiresIn: 86400, // expires in 24 hours
     });
 
-    res.status(200).send({ auth: true, token: token });
+    res
+      .cookie('token', token, { httpOnly: true })
+      .status(200)
+      .send({ auth: true, token: token });
   });
 });
 
