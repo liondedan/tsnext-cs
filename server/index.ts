@@ -30,6 +30,7 @@ nextApp.prepare().then(() => {
   server.use('/users', routes.user);
   server.use('/messages', routes.message);
   server.use('/api/auth', routes.auth);
+  server.use('/api/bookings', routes.booking);
 
   server.get('/', (req: any, res: any) => {
     return nextApp.render(req, res, '/', req.query);

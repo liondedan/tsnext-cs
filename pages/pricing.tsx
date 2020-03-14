@@ -1,5 +1,4 @@
 import React from 'react';
-// import useAuth from '../hooks/useAuth';
 import TitleBlock from '../components/titleBlock';
 import IconFont from '../components/iconFont';
 import ContainerWrap from '../components/containerWrap';
@@ -13,7 +12,6 @@ import Grid from '@material-ui/core/Grid';
 import { faCheckCircle } from '@fortawesome/free-solid-svg-icons';
 
 const index: React.SFC = () => {
-  // useAuth();
   return (
     <>
       <Banner
