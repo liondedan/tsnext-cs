@@ -1,5 +1,7 @@
 import React from 'react';
 import useAuth from '../hooks/useAuth';
+import useCheckAvailability from '../hooks/useCheckAvailability';
+import Calendar from '../components/calendar';
 import ContainerWrap from '../components/containerWrap';
 import Typography from '@material-ui/core/Typography';
 import withLayout from '../components/withLayout';
@@ -7,23 +9,26 @@ import Grid from '@material-ui/core/Grid';
 
 const index: React.SFC = () => {
   useAuth();
+  const { result, error, loading } = useCheckAvailability();
+
   return (
     <>
       <ContainerWrap>
         <Grid container spacing={5}>
           <Grid item xs={12} sm={6}>
             <Typography variant="h4" gutterBottom>
-              Cats
+              Bookings
             </Typography>
+            {result && <Calendar bookingData={result} />}
+            {error && error}
+            {loading && loading}
 
             <Typography
               variant="body1"
               style={{ paddingTop: 10 }}
               component="h6"
               gutterBottom
-            >
-              Dogs
-            </Typography>
+            ></Typography>
           </Grid>
         </Grid>
       </ContainerWrap>

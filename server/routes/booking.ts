@@ -3,33 +3,33 @@ import models from '../models';
 import verifyToken from '../utils/verifyToken';
 const router = Router();
 
-const fakeData = {
-  adults: 1,
-  arrivalDate: 1,
-  booking_created: 1,
-  booking_update: 1,
-  bookingType: 'catz',
-  children: 1,
-  confirmationEmail: true,
-  confirmationEmailDate: 1,
-  departureDate: 1,
-  deposit: 1,
-  dogs: 1,
-  email: 'catz',
-  extraInfo: 'catz',
-  firstName: 'catz',
-  hookUp: 1,
-  id: 1,
-  infants: 1,
-  lastName: 'catz',
-  paymentEmail: true,
-  paymentEmailDate: 1,
-  pitch: 1,
-  pitchType: 'catz',
-  remainderPaid: 1,
-  subTotal: 1,
-  total: 1,
-};
+// const fakeData = {
+//   adults: 1,
+//   arrivalDate: 1,
+//   booking_created: 1,
+//   booking_update: 1,
+//   bookingType: 'catz',
+//   children: 1,
+//   confirmationEmail: true,
+//   confirmationEmailDate: 1,
+//   departureDate: 1,
+//   deposit: 1,
+//   dogs: 1,
+//   email: 'catz',
+//   extraInfo: 'catz',
+//   firstName: 'catz',
+//   hookUp: 1,
+//   id: 1,
+//   infants: 1,
+//   lastName: 'catz',
+//   paymentEmail: true,
+//   paymentEmailDate: 1,
+//   pitch: 1,
+//   pitchType: 'catz',
+//   remainderPaid: 1,
+//   subTotal: 1,
+//   total: 1,
+// };
 
 router.get('/', verifyToken, async ({ res }: any) => {
   //@ts-ignore
@@ -51,9 +51,9 @@ router.delete('/:bookingId', async (req, res) => {
   return res.send(result);
 });
 
-router.post('/', async ({ res, next }: any) => {
+router.post('/', async (req, res, next: any) => {
   try {
-    const booking = new models.Booking(fakeData);
+    const booking = new models.Booking(req.body);
     // @ts-ignore
     const ret = await booking.save();
     console.log(ret);

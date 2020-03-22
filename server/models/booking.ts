@@ -8,15 +8,15 @@ const BookingSchema = new mongoose.Schema({
     required: true,
   },
   arrivalDate: {
-    type: Number,
+    type: Date,
     required: true,
   },
   booking_created: {
-    type: Number,
+    type: Date,
     required: true,
   },
   booking_update: {
-    type: Number,
+    type: Date,
     required: true,
   },
   bookingType: {
@@ -32,11 +32,11 @@ const BookingSchema = new mongoose.Schema({
     required: true,
   },
   confirmationEmailDate: {
-    type: Number,
+    type: Date,
     required: true,
   },
   departureDate: {
-    type: Number,
+    type: Date,
     required: true,
   },
   deposit: {
@@ -80,7 +80,7 @@ const BookingSchema = new mongoose.Schema({
     required: true,
   },
   paymentEmailDate: {
-    type: Number,
+    type: Date,
     required: true,
   },
   pitch: {

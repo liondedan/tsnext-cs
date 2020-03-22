@@ -3,14 +3,14 @@ import { Document } from 'mongoose';
 
 export interface Booking {
   adults: number;
-  arrivalDate: number;
-  booking_created: number;
-  booking_update: number;
+  arrivalDate: Date;
+  booking_created: Date;
+  booking_update: Date;
   bookingType: string;
   children: number;
   confirmationEmail: boolean;
-  confirmationEmailDate: number;
-  departureDate: number;
+  confirmationEmailDate: Date;
+  departureDate: Date;
   deposit: number;
   dogs: number;
   email: string;
@@ -21,7 +21,7 @@ export interface Booking {
   infants: number;
   lastName: string;
   paymentEmail: boolean;
-  paymentEmailDate: number;
+  paymentEmailDate: Date;
   pitch: number;
   pitchType: string;
   remainderPaid: number;

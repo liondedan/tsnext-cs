@@ -113,7 +113,7 @@ const index: React.SFC = () => {
                     label="Full Name"
                     variant="outlined"
                     required
-                    error={errors.fullName ? true : false}
+                    error={errors.firstName ? true : false}
                   />
                 </Grid>
                 <Grid item xs={12}>
@@ -127,7 +127,7 @@ const index: React.SFC = () => {
                         message: 'invalid email address',
                       },
                     })}
-                    error={errors.emailAddress ? true : false}
+                    error={errors.email ? true : false}
                     required
                     name="emailAddress"
                     label="Email Address"
