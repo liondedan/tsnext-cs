@@ -136,7 +136,7 @@ export const createFakeBooking = () => {
     lastName: 'catz',
     paymentEmail: true,
     paymentEmailDate: faker.date.between('2015-01-01', '2015-12-31'),
-    pitch: 1,
+    pitch: faker.random.number(20),
     pitchType: 'catz',
     remainderPaid: 1,
     subTotal: 1,

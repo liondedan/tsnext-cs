@@ -1,20 +1,12 @@
-import React, { useState } from 'react';
+import React from 'react';
 import moment from 'moment';
 import { Booking } from '../types';
-// import useApiClient from '../hooks/useApiClient';
 
 interface Calendar {
   bookingData?: Booking[];
 }
 
 const index: React.SFC<Calendar> = ({ bookingData }) => {
-  const [bookingsByDate] = useState();
-  // const [dataSet, setDataSet] = useState<DataSetProps>();
-
-  // useEffect(() => {
-  //   assignBookingToHeader();
-  // }, []);
-
   const generateHeaderDates = () => {
     const columnHeaders = [];
     for (let i = 0; i < 6; i++) {
@@ -27,20 +19,49 @@ const index: React.SFC<Calendar> = ({ bookingData }) => {
   };
 
   const getHeadingBookings = (columnHeading: any) => {
-    //@ts-ignore
-    let columnBookings = bookingData.filter(e => {
-      let bookingOnDay = columnHeading.isBetween(
-        e.arrivalDate,
-        e.departureDate
-      );
+    if (bookingData) {
+      let columnBookings = bookingData.filter((e: Booking) => {
+        let bookingOnDay = columnHeading.isBetween(
+          e.arrivalDate,
+          e.departureDate
+        );
 
-      if (bookingOnDay) {
-        return e;
+        if (bookingOnDay) {
+          return e;
+        }
+
+        return bookingOnDay;
+      });
+
+      let filledEmpty = [];
+
+      for (let i = 1; i < 21; i++) {
+        let isBooked = false;
+
+        for (var j = 0; j < columnBookings.length; j++) {
+          if (i == columnBookings[j].pitch) {
+            debugger;
+            isBooked = true;
+            break;
+          }
+        }
+
+        if (isBooked) {
+          debugger;
+          filledEmpty.push(columnBookings[j]);
+          debugger;
+        } else {
+          debugger;
+          filledEmpty.push({ pitch: i });
+          debugger;
+        }
       }
-      return bookingOnDay;
-    });
 
-    return columnBookings;
+      debugger;
+      return filledEmpty;
+
+      // return filledEmpty.sort((a: any, b: any) => a.pitch - b.pitch);
+    }
   };
 
   const assignBookingToHeader = () => {
@@ -58,22 +79,14 @@ const index: React.SFC<Calendar> = ({ bookingData }) => {
     return columnHeadingWithDates;
   };
 
-  console.log(bookingsByDate);
-  // const mapShapedBookings = () => {
-  //   bookingsByDate.map((heading: any) => {
-  //     debugger;
-  //     console.log(heading);
-  //   });
-  // };
-
-  const cat = () => {
+  const mapBookingsByHeading = () => {
     const dog = assignBookingToHeader();
 
     const returnDog = dog.map(e => {
       //@ts-ignore
       let bookingData = Object.values(e)[0].map((b: any) => (
         <div>
-          {b.arrivalDate} - {b.departureDate}
+          {b.pitch} - {b.arrivalDate} - {b.departureDate}
         </div>
       ));
 
@@ -88,7 +101,7 @@ const index: React.SFC<Calendar> = ({ bookingData }) => {
     return returnDog;
   };
 
-  return <>{cat()}</>;
+  return <>{mapBookingsByHeading()}</>;
 };
 
 export default index;

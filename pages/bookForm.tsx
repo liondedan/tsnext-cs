@@ -28,8 +28,6 @@ const useStyles = makeStyles((theme: Theme) =>
   })
 );
 
-const fakeData = createFakeBooking();
-
 // const fakeData = {
 //   adults: 1,
 //   arrivalDate: 1,
@@ -66,6 +64,7 @@ const index: React.SFC = () => {
   const today = format(new Date(), 'yyyy-MM-dd');
 
   const onSubmit = handleSubmit((booking: Booking) => {
+    let fakeData = createFakeBooking();
     console.log(booking);
     fetch(`/api/bookings`, {
       method: 'POST',
