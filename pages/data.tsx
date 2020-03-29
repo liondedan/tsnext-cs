@@ -1,7 +1,7 @@
 import React from 'react';
 import useAuth from '../hooks/useAuth';
 import useCheckAvailability from '../hooks/useCheckAvailability';
-import Calendar from '../components/calendar';
+import Calendar from '../components/Calendar/index';
 import ContainerWrap from '../components/containerWrap';
 import Typography from '@material-ui/core/Typography';
 import withLayout from '../components/withLayout';
@@ -15,7 +15,7 @@ const index: React.SFC = () => {
     <>
       <ContainerWrap>
         <Grid container spacing={5}>
-          <Grid item xs={12} sm={6}>
+          <Grid item xs={12}>
             <Typography variant="h4" gutterBottom>
               Bookings
             </Typography>
