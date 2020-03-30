@@ -2,7 +2,7 @@ import React, { useState, useEffect, useRef } from 'react';
 import moment from 'moment';
 import { makeStyles } from '@material-ui/core/styles';
 import { Cell } from './tableCell';
-import TableCell from '@material-ui/core/TableCell';
+import { HeaderCell } from './headerCell';
 import Table from '@material-ui/core/Table';
 import TableBody from '@material-ui/core/TableBody';
 import TableContainer from '@material-ui/core/TableContainer';
@@ -22,18 +22,17 @@ const useStyles = makeStyles({
 });
 
 const index: React.SFC<Calendar> = ({ bookingData }) => {
+  const TODAY = moment();
   const [rowHeaders, setRowHeaders] = useState();
   const [today, setToday] = useState(moment());
   const prevTodayRef = useRef(today);
   const [dataByHeading, setDataByHeading] = useState();
   const classes = useStyles();
-  console.log(today);
 
   useEffect(() => {
     prevTodayRef.current = today;
-    debugger;
-    if (today) debugger;
     setToday(today);
+    debugger;
     assignBookingToHeader(today);
   }, []);
 
@@ -88,9 +87,7 @@ const index: React.SFC<Calendar> = ({ bookingData }) => {
 
   const assignBookingToHeader = (today: moment.Moment) => {
     debugger;
-
     let nextSevenDays: moment.Moment[] = generateHeaderDates(today);
-    debugger;
     setRowHeaders(nextSevenDays);
 
     let columnHeadingWithDates = [];
@@ -108,11 +105,16 @@ const index: React.SFC<Calendar> = ({ bookingData }) => {
   };
 
   const generateTableData = () => {
-    let rowToPush: any = [];
-    for (var i = 1; i < 15; i++) {
-      let rowData = { pitch: i, pitches: [] };
+    let rowToPush: any[] = [];
+    for (var i = 0; i < 15; i++) {
+      let rowData: any = { pitch: i, pitches: [] };
       // map each header
       rowHeaders.forEach((rowHeader: moment.Moment, index: number) => {
+        // Add pitch value to first row
+        if (index == 0) {
+          rowData.pitches.push({ pitch: i + 1 });
+        }
+
         //find dataset that exists within that header
         Object.values(dataByHeading).forEach((e: any) => {
           // get header as formatted moment
@@ -143,19 +145,17 @@ const index: React.SFC<Calendar> = ({ bookingData }) => {
     ));
   };
 
-  const mapBookingsByHeading = () => {
-    const tableToRender = dataByHeading.map((e: any) => {
-      return <TableCell>{Object.keys(e)[0]}</TableCell>;
-    });
-
-    // debugger;
-    // console.log(tableData);
-    console.log(tableToRender);
-    // console.log(createRowData);
-    return tableToRender;
+  const createHeaderRow = () => {
+    // needs to map one more time
+    return dataByHeading.map((e: any, index: number) => HeaderCell(e, index));
   };
 
-  const incrementDate = (diff: number) => {
+  const incrementDate = (diff: number | string) => {
+    if (diff == 'today') {
+      setToday(TODAY);
+      assignBookingToHeader(TODAY);
+      return;
+    }
     let dateAdded = today.add(diff, 'day');
     setToday(dateAdded);
     assignBookingToHeader(dateAdded);
@@ -165,10 +165,11 @@ const index: React.SFC<Calendar> = ({ bookingData }) => {
     <>
       <button onClick={() => incrementDate(-5)}>Prev Week</button>
       <button onClick={() => incrementDate(5)}>Next Week</button>
+      <button onClick={() => incrementDate('today')}>Today</button>
       <TableContainer component={Paper}>
         <Table className={classes.table} aria-label="a dense table">
           <TableHead>
-            <TableRow>{dataByHeading && mapBookingsByHeading()}</TableRow>
+            <TableRow>{dataByHeading && createHeaderRow()}</TableRow>
           </TableHead>
           <TableBody>{dataByHeading && createRow()}</TableBody>
         </Table>
