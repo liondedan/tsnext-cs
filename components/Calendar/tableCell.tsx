@@ -1,25 +1,26 @@
-import { Booking } from '../../types';
 import moment from 'moment';
+import { Booking } from '../../types';
+import { IDummyBooking } from './index';
 import TableCell from '@material-ui/core/TableCell';
-export const Cell = (cell: Booking) => {
-  let { arrivalDate, departureDate } = cell;
-
-  if (arrivalDate) {
-    //@ts-ignore
-    arrivalDate = moment(arrivalDate).format('DD-MM-YYYY');
+export const Cell = (cell: IDummyBooking | Booking) => {
+  if ((cell as Booking).arrivalDate) {
+    const booking = cell as Booking;
+    let { arrivalDate, departureDate, email, pitch } = booking;
+    let arrivalDateF = moment(arrivalDate).format('DD-MM-YYYY');
+    let departureDateF = moment(departureDate).format('DD-MM-YYYY');
+    let decorate = () => `${arrivalDateF} - ${departureDateF}`;
+    return (
+      <TableCell component="th" scope="row">
+        {decorate()}
+        {email}
+        {pitch}
+      </TableCell>
+    );
+  } else if (cell as IDummyBooking) {
+    return (
+      <TableCell component="th" scope="row">
+        {cell.pitch}
+      </TableCell>
+    );
   }
-
-  if (departureDate) {
-    //@ts-ignore
-    departureDate = moment(departureDate).format('DD-MM-YYYY');
-  }
-
-  let decorate = () => `${arrivalDate} - ${departureDate}`;
-  return (
-    <TableCell component="th" scope="row">
-      {arrivalDate && departureDate && decorate()}
-      {cell.email}
-      {cell.pitch}
-    </TableCell>
-  );
 };

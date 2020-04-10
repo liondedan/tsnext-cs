@@ -15,6 +15,23 @@ interface Calendar {
   bookingData?: Booking[];
 }
 
+interface IRowHeaders {
+  headers: moment.Moment[] | [];
+}
+
+export interface IColumnHeadingsWithDates {
+  [key: string]: Booking[] | IDummyBooking[];
+}
+
+export interface IDummyBooking {
+  pitch: number;
+}
+
+interface IRowToPush {
+  pitch: number;
+  pitches: Booking[] | IDummyBooking[];
+}
+
 const useStyles = makeStyles({
   table: {
     minWidth: 650,
@@ -23,16 +40,17 @@ const useStyles = makeStyles({
 
 const index: React.SFC<Calendar> = ({ bookingData }) => {
   const TODAY = moment();
-  const [rowHeaders, setRowHeaders] = useState();
+  const [rowHeaders, setRowHeaders] = useState<IRowHeaders>();
   const [today, setToday] = useState(moment());
   const prevTodayRef = useRef(today);
-  const [dataByHeading, setDataByHeading] = useState();
+  const [dataByHeading, setDataByHeading] = useState<
+    IColumnHeadingsWithDates[]
+  >();
   const classes = useStyles();
 
   useEffect(() => {
     prevTodayRef.current = today;
     setToday(today);
-    debugger;
     assignBookingToHeader(today);
   }, []);
 
@@ -86,18 +104,18 @@ const index: React.SFC<Calendar> = ({ bookingData }) => {
   };
 
   const assignBookingToHeader = (today: moment.Moment) => {
-    debugger;
     let nextSevenDays: moment.Moment[] = generateHeaderDates(today);
-    setRowHeaders(nextSevenDays);
+    setRowHeaders({ headers: nextSevenDays });
 
-    let columnHeadingWithDates = [];
+    let columnHeadingWithDates: IColumnHeadingsWithDates | [] = [];
     // Look through each column header
     for (let i = 0; i < nextSevenDays.length; i++) {
       // Get all dates assosiated with column header
       let headingBookings = getHeadingBookings(nextSevenDays[i]);
       // Set all asosiated bookings to column header
-      // @ts-ignore
+      //@ts-ignore
       let headingBookingSubset = { [nextSevenDays[i]]: headingBookings };
+      //@ts-ignore
       columnHeadingWithDates.push(headingBookingSubset);
     }
 
@@ -105,31 +123,40 @@ const index: React.SFC<Calendar> = ({ bookingData }) => {
   };
 
   const generateTableData = () => {
-    let rowToPush: any[] = [];
+    if (!rowHeaders) {
+      return;
+    }
+
+    let rowToPush: IRowToPush[] = [];
     for (var i = 0; i < 15; i++) {
-      let rowData: any = { pitch: i, pitches: [] };
+      let rowData: IRowToPush = { pitch: i, pitches: [] };
       // map each header
-      rowHeaders.forEach((rowHeader: moment.Moment, index: number) => {
+      rowHeaders.headers.forEach((rowHeader: moment.Moment, index: number) => {
         // Add pitch value to first row
         if (index == 0) {
+          //@ts-ignore
           rowData.pitches.push({ pitch: i + 1 });
         }
 
         //find dataset that exists within that header
-        Object.values(dataByHeading).forEach((e: any) => {
-          // get header as formatted moment
-          let dataSet = moment(Object.keys(e)[0]).format();
+        if (dataByHeading) {
+          Object.values(dataByHeading).forEach(
+            (e: IColumnHeadingsWithDates) => {
+              // get header as formatted moment
+              let dataSet = moment(Object.keys(e)[0]).format();
 
-          // it's the data set that matches the header
-          if (dataSet == rowHeader.format()) {
-            // @ts-ignore
-            let pitchForSlot = Object.values(e)[0][i];
-            // @ts-ignore
-            rowData.pitches.push(pitchForSlot);
-          }
-        });
+              // it's the data set that matches the header
+              if (dataSet == rowHeader.format()) {
+                // @ts-ignore
+                let pitchForSlot = Object.values(e)[0][i];
+                // @ts-ignore
+                rowData.pitches.push(pitchForSlot);
+              }
+            }
+          );
+        }
 
-        if (index + 1 == rowHeaders.length) {
+        if (index + 1 == rowHeaders.headers.length) {
           rowToPush.push(rowData);
         }
       });
@@ -140,14 +167,24 @@ const index: React.SFC<Calendar> = ({ bookingData }) => {
 
   const createRow = () => {
     const tableData = generateTableData();
-    return tableData.map((row: any) => (
-      <TableRow>{row.pitches.map((column: any) => Cell(column))}</TableRow>
+    if (!tableData) {
+      return <p>No Bookings</p>;
+    }
+
+    return tableData.map((row: IRowToPush) => (
+      //@ts-ignore
+      <TableRow>{row.pitches.map((column: Booking) => Cell(column))}</TableRow>
     ));
   };
 
   const createHeaderRow = () => {
-    // needs to map one more time
-    return dataByHeading.map((e: any, index: number) => HeaderCell(e, index));
+    if (!dataByHeading) {
+      return <p>No Header data</p>;
+    }
+
+    return dataByHeading.map((e: IColumnHeadingsWithDates, index: number) =>
+      HeaderCell(e, index)
+    );
   };
 
   const incrementDate = (diff: number | string) => {
@@ -169,7 +206,7 @@ const index: React.SFC<Calendar> = ({ bookingData }) => {
       <TableContainer component={Paper}>
         <Table className={classes.table} aria-label="a dense table">
           <TableHead>
-            <TableRow>{dataByHeading && createHeaderRow()}</TableRow>
+            <TableRow>{createHeaderRow()}</TableRow>
           </TableHead>
           <TableBody>{dataByHeading && createRow()}</TableBody>
         </Table>

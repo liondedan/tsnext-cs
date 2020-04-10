@@ -1,7 +1,9 @@
-import { Booking } from '../../types';
 import TableCell from '@material-ui/core/TableCell';
+import { IColumnHeadingsWithDates } from './index';
+import moment from 'moment';
 
-export const HeaderCell = (cell: Booking, index: number) => {
+export const HeaderCell = (cell: IColumnHeadingsWithDates, index: number) => {
+  let dateF = moment(Object.keys(cell)[0]).format('ddd DD MMM');
   // Add pitches column
   if (index == 0) {
     return (
@@ -10,7 +12,7 @@ export const HeaderCell = (cell: Booking, index: number) => {
           Pitches
         </TableCell>
         <TableCell component="th" scope="row">
-          {Object.keys(cell)[0]}
+          {dateF}
         </TableCell>
       </>
     );
@@ -18,7 +20,7 @@ export const HeaderCell = (cell: Booking, index: number) => {
 
   return (
     <TableCell component="th" scope="row">
-      {Object.keys(cell)[0]}
+      {dateF}
     </TableCell>
   );
 };
