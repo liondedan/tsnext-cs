@@ -1,5 +1,7 @@
 const supertest = require('supertest');
-const app = require('../index');
+import { server } from '../index';
+
+const agent = supertest.agent(server);
 
 describe('Testing the movies API', () => {
   it('tests our testing framework if it works', () => {
@@ -9,9 +11,9 @@ describe('Testing the movies API', () => {
 
 describe('Testing the movies API', () => {
   it('tests the base route and returns true for status', async () => {
-    const response = await supertest(app).get('/api/a');
-
-    expect(response.status).toBe(200);
-    expect(response.body.status).toBe(true);
+    // agent.get('/api/a').expect(200);
+    agent.get('/api/a').expect(res => {
+      asset.equal(res.body[a], '2');
+    });
   });
 });

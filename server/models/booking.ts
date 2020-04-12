@@ -1,5 +1,7 @@
-import mongoose from 'mongoose';
-import { MongoBooking } from '../../types';
+import * as mongoose from 'mongoose';
+// import mongoose from 'mongoose';
+// import { MongoBooking } from '../../types';
+import { Booking } from '../../types';
 
 const BookingSchema = new mongoose.Schema({
   user: { type: mongoose.Schema.Types.ObjectId, ref: 'User' },
@@ -105,4 +107,9 @@ const BookingSchema = new mongoose.Schema({
   },
 });
 
-export default mongoose.model<MongoBooking>('Booking', BookingSchema);
+export default mongoose.model<Booking & mongoose.Document>(
+  'Booking',
+  BookingSchema
+);
+
+// export default mongoose.model<MongoBooking>('Booking', BookingSchema);

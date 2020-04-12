@@ -1,48 +1,30 @@
-import { Router } from 'express';
+import { Router, Request, Response, NextFunction } from 'express';
 import models from '../models';
-import verifyToken from '../utils/verifyToken';
+// import verifyToken from '../utils/verifyToken';
 const router = Router();
 
-// const fakeData = {
-//   adults: 1,
-//   arrivalDate: 1,
-//   booking_created: 1,
-//   booking_update: 1,
-//   bookingType: 'catz',
-//   children: 1,
-//   confirmationEmail: true,
-//   confirmationEmailDate: 1,
-//   departureDate: 1,
-//   deposit: 1,
-//   dogs: 1,
-//   email: 'catz',
-//   extraInfo: 'catz',
-//   firstName: 'catz',
-//   hookUp: 1,
-//   id: 1,
-//   infants: 1,
-//   lastName: 'catz',
-//   paymentEmail: true,
-//   paymentEmailDate: 1,
-//   pitch: 1,
-//   pitchType: 'catz',
-//   remainderPaid: 1,
-//   subTotal: 1,
-//   total: 1,
-// };
-
-router.get('/', verifyToken, async ({ res }: any) => {
-  //@ts-ignore
+router.get('/', async (_req: Request, res: Response) => {
   const bookings = await models.Booking.find();
   return res.send(bookings);
 });
 
-router.get('/:bookingId', async (req, res) => {
+router.get('/:bookingId', async (req: Request, res: Response) => {
   const booking = await models.Booking.findById(req.params.bookingId);
   return res.send(booking);
 });
 
-router.delete('/:bookingId', async (req, res) => {
+router.post('/', async (req: Request, res: Response, next: NextFunction) => {
+  try {
+    const booking = new models.Booking(req.body);
+    const ret = await booking.save();
+    res.status(200).send(ret);
+  } catch (error) {
+    console.log(error);
+    return next(error);
+  }
+});
+
+router.delete('/:bookingId', async (req: Request, res: Response) => {
   const booking = await models.Booking.findById(req.params.bookingId);
   let result = null;
   if (booking) {
@@ -51,18 +33,18 @@ router.delete('/:bookingId', async (req, res) => {
   return res.send(result);
 });
 
-router.post('/', async (req, res, next: any) => {
-  try {
-    const booking = new models.Booking(req.body);
-    // @ts-ignore
-    const ret = await booking.save();
-    console.log(ret);
-    res.status(200).send(ret);
-  } catch (error) {
-    // Passes errors into the error handler
-    console.log(error);
-    return next(error);
-  }
+router.put('/:bookingId', async (req: Request, res: Response) => {
+  await models.Booking.findByIdAndUpdate(
+    req.params.bookingId,
+    req.body,
+    { new: true },
+    (err: any, booking: any) => {
+      if (err) {
+        return res.status(500).send(err);
+      }
+      return res.send(booking);
+    }
+  );
 });
 
 export default router;

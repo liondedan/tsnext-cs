@@ -13,9 +13,9 @@ const port: any = process.env.PORT || 3000;
 const dev = process.env.NODE_ENV !== 'production';
 const nextApp = nextFrame({ dir: '.', dev });
 const nextHandler = nextApp.getRequestHandler();
+export const server: express.Application = express();
 
 nextApp.prepare().then(() => {
-  const server: express.Application = express();
   server.use(
     forceDomain({
       hostname: 'www.coastalstay.co.uk',
