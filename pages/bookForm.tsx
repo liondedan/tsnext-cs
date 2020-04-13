@@ -35,7 +35,45 @@ const index: React.SFC = () => {
   tomorrowUF.setDate(tomorrowUF.getDate() + 1);
   const tomorrow = format(tomorrowUF, 'yyyy-MM-dd');
 
+  const createCheckoutSession = () => {
+    debugger;
+    return fetch('/api/checkout/create-checkout-session', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({
+        quantity: 10,
+        locale: 'en',
+      }),
+    })
+      .then(function(result) {
+        debugger;
+        return result.json();
+      })
+      .catch((error: any) => {
+        debugger;
+        console.log(error);
+      });
+  };
+
   const onSubmit = handleSubmit((booking: Booking) => {
+    debugger;
+    // @ts-ignore
+    let stripe = Stripe(process.env.STRIPE_PUBLISHABLE_KEY);
+    createCheckoutSession().then(function(data) {
+      //@ts-ignore
+      debugger;
+      stripe
+        .redirectToCheckout({
+          sessionId: data.sessionId,
+        })
+        .then((e: any) => {
+          console.log(e);
+          debugger;
+        });
+    });
+
     let fakeData = createFakeBooking();
     console.log(booking);
     fetch(`/api/bookings`, {
@@ -47,6 +85,7 @@ const index: React.SFC = () => {
     })
       .then(response => response)
       .then(result => {
+        // debugger;
         console.log(result);
       })
       .catch((error: any) => {
@@ -160,7 +199,6 @@ const index: React.SFC = () => {
         id: 'adults',
         inputRef: register({
           required: true,
-          pattern: /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i,
         }),
       })}
 

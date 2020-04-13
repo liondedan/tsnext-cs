@@ -31,6 +31,7 @@ nextApp.prepare().then(() => {
   server.use('/messages', routes.message);
   server.use('/api/auth', routes.auth);
   server.use('/api/bookings', routes.booking);
+  server.use('/api/checkout', routes.checkout);
 
   server.get('/', (req: any, res: any) => {
     return nextApp.render(req, res, '/', req.query);

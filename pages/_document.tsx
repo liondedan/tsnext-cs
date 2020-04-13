@@ -11,6 +11,7 @@ export default class MyDocument extends Document {
         <Head>
           {/* PWA primary color */}
           <link rel="shortcut icon" href="/favicon.ico" />
+          <script src="https://js.stripe.com/v3/"></script>
           <meta
             name="google-site-verification"
             content="QFmL1uY8dNqwQjApaLvjch6AYY7tTcvaNo-vWN-TDF8"
