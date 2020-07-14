@@ -22,16 +22,19 @@ nextApp.prepare().then(() => {
       protocol: 'https',
     })
   );
-  server.use(express.json());
   server.use(cookieParser());
   server.use(express.urlencoded({ extended: true }));
 
   // Routing
+
+  server.use('/api', routes.webhook);
+  // Has to come ofter webhook due to requirement for stripe signature to use raw response and not .json
+  server.use(express.json());
+  server.use('/api/checkout', routes.checkout);
   server.use('/users', routes.user);
   server.use('/messages', routes.message);
   server.use('/api/auth', routes.auth);
   server.use('/api/bookings', routes.booking);
-  server.use('/api/checkout', routes.checkout);
 
   server.get('/', (req: any, res: any) => {
     return nextApp.render(req, res, '/', req.query);

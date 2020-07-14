@@ -133,7 +133,6 @@ export const createFakeBooking = () => {
     hookUp: 1,
     id: 1,
     infants: 1,
-    lastName: faker.name.lastName(),
     paymentEmail: true,
     paymentEmailDate: faker.date.between('2015-01-01', '2015-12-31'),
     pitch: faker.random.number(20),
@@ -141,6 +140,7 @@ export const createFakeBooking = () => {
     remainderPaid: 1,
     subTotal: 1,
     total: 1,
+    customerId: 'cus_HAuWP4W8BcOWB6',
   };
 };
 

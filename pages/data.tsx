@@ -9,6 +9,7 @@ import Grid from '@material-ui/core/Grid';
 
 const index: React.SFC = () => {
   useAuth();
+
   const { result, error, loading } = useCheckAvailability();
 
   return (

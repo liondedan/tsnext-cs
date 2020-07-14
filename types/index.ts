@@ -1,33 +1,38 @@
 export * from './meta';
 import { Document } from 'mongoose';
 
-export interface Booking {
-  adults: number;
-  arrivalDate: Date;
+export interface Booking extends BookingCalc {
   booking_created: Date;
-  booking_update: Date;
+  booking_update: Date | null;
   bookingType: string;
-  children: number;
-  confirmationEmail: boolean;
-  confirmationEmailDate: Date;
-  departureDate: Date;
+  confirmationEmail: boolean | null;
+  confirmationEmailDate: Date | null;
   deposit: number;
-  dogs: number;
   email: string;
-  extraInfo: string;
+  extraInfo: string | undefined;
   firstName: string;
-  hookUp: number;
   id: number;
-  infants: number;
-  lastName: string;
   paymentEmail: boolean;
-  paymentEmailDate: Date;
+  paymentEmailDate: Date | null;
   pitch: number;
-  pitchType: string;
-  remainderPaid: number;
+  remainderPaid: number | null;
   subTotal: number;
   total: number;
+  customerId: any;
+  paymentId: any;
 }
+
+export interface BookingCalc {
+  children: number;
+  departureDate: Date;
+  arrivalDate: Date;
+  dogs: number;
+  hookUp: number;
+  infants: number;
+  pitchType: string;
+  adults: number;
+}
+
 export interface MongoBooking extends Document {
   Booking: Booking;
 }

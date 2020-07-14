@@ -19,7 +19,7 @@ const BookingSchema = new mongoose.Schema({
   },
   booking_update: {
     type: Date,
-    required: true,
+    required: false,
   },
   bookingType: {
     type: String,
@@ -31,11 +31,11 @@ const BookingSchema = new mongoose.Schema({
   },
   confirmationEmail: {
     type: Boolean,
-    required: true,
+    required: false,
   },
   confirmationEmailDate: {
     type: Date,
-    required: true,
+    required: false,
   },
   departureDate: {
     type: Date,
@@ -43,7 +43,7 @@ const BookingSchema = new mongoose.Schema({
   },
   deposit: {
     type: Number,
-    required: true,
+    required: false,
   },
   dogs: {
     type: Number,
@@ -55,7 +55,7 @@ const BookingSchema = new mongoose.Schema({
   },
   extraInfo: {
     type: String,
-    required: true,
+    required: false,
   },
   firstName: {
     type: String,
@@ -73,17 +73,13 @@ const BookingSchema = new mongoose.Schema({
     type: Number,
     required: true,
   },
-  lastName: {
-    type: String,
-    required: true,
-  },
   paymentEmail: {
     type: Boolean,
-    required: true,
+    required: false,
   },
   paymentEmailDate: {
     type: Date,
-    required: true,
+    required: false,
   },
   pitch: {
     type: Number,
@@ -95,7 +91,7 @@ const BookingSchema = new mongoose.Schema({
   },
   remainderPaid: {
     type: Number,
-    required: true,
+    required: false,
   },
   subTotal: {
     type: Number,
