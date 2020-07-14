@@ -49,50 +49,43 @@ router.post(
       const stripeObject: Stripe.PaymentIntent = event.data
         .object as Stripe.PaymentIntent;
       console.log(`💰 Checkout Session Complete: ${stripeObject.status}`);
-      console.log(' BEFORE DA EVENT DATA');
-      console.log(event.data, ' event data');
-      // console.log(req.body, ' req body');
-
-      // let metaData = stripeObject.metadata;
-
-      console.log(stripeObject, " stripe obj")
+      console.log("Stripe Object: " + stripeObject.object)
 
       let metaData = {
-        firstName: 'Daniel',
-        id: 123,
-        email: 'info@thinkdan.co.uk',
-        arrivalDate: '2020-04-30',
-        departureDate: '2020-05-01',
-        extraInfo: '',
-        adults: '1',
+        firstName: 'Harriet',
+        email: 'jim@him.com',
+        arrivalDate: '2020-07-14',
+        departureDate: '2020-07-16',
+        extraInfo: 'hello punkjs',
+        adults: '6',
         pitchType: 'Standard Pitch',
-        children: '0',
+        children: '1',
         infants: '0',
         dogs: '0',
-        hookUp: '0',
-        booking_created: '2020-04-30T11:20:13.386Z',
-        booking_updated: null,
+        hookUp: '1',
+        booking_created: '2020-07-14T14:16:18.799Z',
+        booking_updated: '',
         bookingType: 'Coastal Stay',
         confirmationEmail: 'false',
-        confirmationEmailDate: null,
-        remainderPaid: null,
+        confirmationEmailDate: '',
+        remainderPaid: '',
         deposit: '0',
-        paymentEmail: false,
-        paymentEmailDate: null,
-        pitch: '1',
-        total: 10,
-        subTotal: 223,
-      };
+        paymentEmail: 'false',
+        paymentEmailDate: '',
+        pitch: '1'
+      }
 
       let bookingObj = {
-        ...metaData,
+        ...stripeObject.metadata,
+        id: stripeObject.id,
         customerId: stripeObject.customer,
         paymentId: stripeObject.id,
+        // @ts-ignore
+        total: stripeObject.display_items[0].amount
       };
 
-      console.log(bookingObj);
+      console.log("Booking Object " + bookingObj);
 
-      console.log('We heree boooyzz');
       // Add booking to DB
       try {
         // const booking = new models.Booking(req.body);

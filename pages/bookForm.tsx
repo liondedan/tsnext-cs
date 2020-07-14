@@ -63,7 +63,7 @@ const index: React.SFC = () => {
   const hiddenFormData = {
     booking_created: new Date(),
     booking_updated: null,
-    booking_type: 'Coastal Stay',
+    bookingType: 'Coastal Stay',
     confirmationEmail: false,
     confirmationEmailDate: null,
     remainderPaid: null,

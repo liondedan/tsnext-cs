@@ -11,7 +11,7 @@ export interface Booking extends BookingCalc {
   email: string;
   extraInfo: string | undefined;
   firstName: string;
-  id: number;
+  id: string;
   paymentEmail: boolean;
   paymentEmailDate: Date | null;
   pitch: number;

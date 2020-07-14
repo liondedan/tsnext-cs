@@ -66,7 +66,7 @@ const BookingSchema = new mongoose.Schema({
     required: true,
   },
   id: {
-    type: Number,
+    type: String,
     required: true,
   },
   infants: {
@@ -95,7 +95,7 @@ const BookingSchema = new mongoose.Schema({
   },
   subTotal: {
     type: Number,
-    required: true,
+    required: false,
   },
   total: {
     type: Number,
