@@ -131,7 +131,7 @@ export const createFakeBooking = () => {
     extraInfo: 'catz',
     firstName: faker.name.findName(),
     hookUp: 1,
-    id: 1,
+    id: '1',
     infants: 1,
     paymentEmail: true,
     paymentEmailDate: faker.date.between('2015-01-01', '2015-12-31'),
