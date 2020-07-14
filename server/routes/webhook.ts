@@ -51,30 +51,6 @@ router.post(
       console.log(`💰 Checkout Session Complete: ${stripeObject.status}`);
       console.log("Stripe Object: " + stripeObject.object)
 
-      let metaData = {
-        firstName: 'Harriet',
-        email: 'jim@him.com',
-        arrivalDate: '2020-07-14',
-        departureDate: '2020-07-16',
-        extraInfo: 'hello punkjs',
-        adults: '6',
-        pitchType: 'Standard Pitch',
-        children: '1',
-        infants: '0',
-        dogs: '0',
-        hookUp: '1',
-        booking_created: '2020-07-14T14:16:18.799Z',
-        booking_updated: '',
-        bookingType: 'Coastal Stay',
-        confirmationEmail: 'false',
-        confirmationEmailDate: '',
-        remainderPaid: '',
-        deposit: '0',
-        paymentEmail: 'false',
-        paymentEmailDate: '',
-        pitch: '1'
-      }
-
       let bookingObj = {
         ...stripeObject.metadata,
         id: stripeObject.id,
