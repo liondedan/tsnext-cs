@@ -18,8 +18,8 @@ export interface Booking extends BookingCalc {
   remainderPaid: number | null;
   subTotal: number;
   total: number;
-  customerId: any;
-  paymentId: any;
+  customerId?: any;
+  paymentId?: any;
 }
 
 export interface BookingCalc {
