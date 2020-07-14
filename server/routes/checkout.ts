@@ -52,8 +52,8 @@ router.post('/create-checkout-session', async (req: Request, res: Response) => {
         amount: price * 100, // Keep the amount on the server to prevent customers from manipulating on client
       },
     ],
-    success_url: `http://localhost:3000/success?session_id={CHECKOUT_SESSION_ID}`,
-    cancel_url: `http://localhost:3000/canceled`,
+    success_url: `http://${process.env.APP_URL}/success?session_id={CHECKOUT_SESSION_ID}`,
+    cancel_url: `http://${process.env.APP_URL}/canceled`,
   });
 
   console.log(session);
