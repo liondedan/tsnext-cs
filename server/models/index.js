@@ -6,9 +6,6 @@ import Message from './message';
 import Person from './person';
 import Booking from './booking';
 
-// const url =
-//   'mongodb://admin_dan:danonly06@ds061611.mlab.com:61611/heroku_pzk57mmp';
-
 const url = process.env.MONGODB_URI;
 
 const connectDb = () => {
