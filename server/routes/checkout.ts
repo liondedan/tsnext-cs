@@ -28,7 +28,6 @@ router.get('/checkout-session', async (req, res) => {
   console.log(req.query);
   console.log(req.query.sessionId);
   const session = await stripe.checkout.sessions.retrieve(sessionId);
-  console.log(session);
   res.send(session);
 });
 
@@ -56,7 +55,6 @@ router.post('/create-checkout-session', async (req: Request, res: Response) => {
     cancel_url: `http://${process.env.APP_URL}/canceled`,
   });
 
-  console.log(session);
 
   res.send({
     sessionId: session.id,

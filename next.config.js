@@ -3,7 +3,8 @@ const webpack = require('webpack');
 // Initialize doteenv library
 require('dotenv').config();
 
-module.exports = withFonts({
+module.exports = {
+  exportTrailingSlash: true,
   webpack: config => {
     // Fixes npm packages that depend on `fs` module
     config.node = {
@@ -23,4 +24,6 @@ module.exports = withFonts({
     config.plugins.push(new webpack.DefinePlugin(env));
     return config;
   },
-});
+};
+
+module.exports = withFonts();

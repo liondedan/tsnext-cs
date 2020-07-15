@@ -68,6 +68,26 @@ nextApp.prepare().then(() => {
       });
   });
 
+  server.get('/feed', ({res}: any) => {
+    res.redirect(301, '/');
+  });
+
+  server.get('/price', ({res}: any) => {
+    res.redirect(301, '/pricing');
+  });
+
+  server.get('/contact', ({res}: any) => {
+    res.redirect(301, '/contact-us');
+  });
+
+  server.get('/bell-tent-glamping', ({res}: any) => {
+    res.redirect(301, '/glamping-pembrokeshire');
+  });
+
+  server.get('/pembrokeshire-camping-coastal', ({res}: any) => {
+    res.redirect(301, '/pembrokeshire-camping');
+  });
+
   // Default catch-all renders Next app
   server.get('*', (req: any, res: any) => {
     const parsedUrl = url.parse(req.url, true);

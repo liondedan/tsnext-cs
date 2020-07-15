@@ -274,7 +274,7 @@ const index: React.SFC = () => {
 };
 
 const MetaData = {
-  title: 'Pembrokeshire Camping',
+  title: 'Pembrokeshire Camping: Near Beach',
 };
 
 export default withLayout(index, MetaData);

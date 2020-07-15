@@ -30,7 +30,7 @@ const ImageText: React.FunctionComponent<ImageTextProps> = ({
 
   let bodyText = typeof body == 'object' ? mapBody(body) : bodyStrut(body);
 
-  const img = () => <img src={imageURL} style={{ width: '100%' }} />;
+  const img = () => <img src={imageURL} alt={title} style={{ width: '100%' }} />;
   const content = () => (
     <>
       <Typography variant="h4" gutterBottom>
