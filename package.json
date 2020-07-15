@@ -45,7 +45,7 @@
     "moment": "^2.24.0",
     "moment-range": "^4.0.2",
     "mongoose": "^5.7.10",
-    "next": "^9.1.3",
+    "next": "^9.4.5-canary.34",
     "next-fonts": "^1.0.3",
     "node-fetch": "^2.6.0",
     "react": "^16.12.0",
