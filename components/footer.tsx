@@ -53,7 +53,7 @@ const Footer: React.SFC = ({}) => {
           </Grid>
           <Grid item xs={12} sm={6}>
           <Typography style={{ marginTop: 10 }} variant="h5" gutterBottom>
-          <a href="/pembrokeshire-camping">Pemrokeshire Camping</a>
+          <a href="/pembrokeshire-camping">Pembrokeshire Camping</a>
           </Typography>
           <Typography style={{ marginTop: 10 }} variant="body2" gutterBottom>
             There's a reason that <a href="/pembrokeshire-camping">Pembrokeshire camping</a> is so popular, camping near the sea with views overlooking the coast
@@ -61,7 +61,7 @@ const Footer: React.SFC = ({}) => {
           </Grid>
           <Grid item xs={12} sm={6}>
           <Typography style={{ marginTop: 10 }} variant="h5" gutterBottom>
-          <a href="/pembrokeshire-activities">Pemrokeshire Activites</a>
+          <a href="/pembrokeshire-activities">Pembrokeshire Activites</a>
           </Typography>
           <Typography style={{ marginTop: 10 }} variant="body2" gutterBottom>
             Our campsite was voted as one of the <a href="https://www.redbull.com/gb-en/beachside-campsites-in-uk">top campsites in the UK</a> for adventure activites and it's a great base to visit the Pembrokeshire activites and attractions.

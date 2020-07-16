@@ -32,7 +32,7 @@ const index: React.SFC = () => {
       <Banner
         title="Camping in Pembrokeshire"
         subtitle="Award Winning Campsite"
-        body="Escape to a beautifully finished campsite small-holding located in a National Trust Conservation area with uninterrupted views of the north Pembrokeshire Coast National Park. Relax and experience the magic of a holiday in the heart of Wales"
+        body="Escape to a peaceful campsite tucked away on a small-holding with uninterrupted views of the Pembrokeshire Coast National Park. Relax and experience the magic of a holiday in the heart of Wales"
         ctaText="Book Now"
         ctaLink="/contact-us"
         url="camping-pembrokeshire-header.jpg"
@@ -43,7 +43,7 @@ const index: React.SFC = () => {
         title="Camping in Pembrokeshire"
         titleVariant="h2"
         invert
-        body="            If you are looking for a hi-tech holiday park then we are probably
+        body="If you are looking for a hi-tech holiday park then we are probably
                 not for you, but if you want your children to know how to build a
                 den or forage for blackberries, then our Pembrokeshire camping site
                 will be exactly what you’re looking for.

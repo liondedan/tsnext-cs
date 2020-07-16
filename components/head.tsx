@@ -6,7 +6,7 @@ import React from 'react';
 const defaultSEO = {
   title: 'Pembrokeshire Camping: Coastal Stay',
   description:
-    'Escape to a beautifully finished campsite small-holding located in a National Trust Conservation area with uninterrupted views of the north Pembrokeshire Coast National Park.',
+    'Escape to a peaceful campsite tucked away on a small-holding with uninterrupted views of the Pembrokeshire Coast National Park',
   image:
     'https://www.coastalstay.co.uk/walking-cycling-pembrokeshire.png',
   siteName: 'Coastal Stay',

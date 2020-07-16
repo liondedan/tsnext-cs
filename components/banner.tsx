@@ -11,7 +11,6 @@ const A = styled.div`
   padding-left: 40px !important;
   padding-right: 40px !important;
   background-color: transparent;
-  max-width: 1600px !important;
 `;
 
 const A1 = styled.div<BannerHeight>`
