@@ -3,11 +3,12 @@ import Typography from '@material-ui/core/Typography';
 import ContainerWrap from '../components/containerWrap';
 import Container from '@material-ui/core/Container';
 import Grid from '@material-ui/core/Grid';
+import Divider from '@material-ui/core/Divider';
 
 const useStyles = makeStyles({
   root: {
     marginTop: 20,
-    marginBottom: 20,
+    marginBottom: 0,
   },
 });
 
@@ -75,11 +76,23 @@ const Footer: React.SFC = ({}) => {
           </Typography>
           </Grid>
         </Grid>
+        
       </ContainerWrap>
 
-      <Typography style={{ marginTop: 10 }} align="center" variant="body1">
+      
+      <Container>
+      <Grid item xs={12}>
+      <Typography style={{ marginTop: 20   }} align="center" variant="body1">
         {featureLogo()}
       </Typography>
+      <Divider style={{ marginTop: 0 }} />
+      </Grid>
+      <Grid item xs={12}>
+        <Typography style={{ marginTop: 20, textAlign: "center", marginBottom: 10 }} variant="body2" gutterBottom>
+            Email: info@coastalstay.co.uk  -  Address: Coastal Stay, Llanrhian, Pembrokeshire, SA626DP. 
+        </Typography>
+        </Grid>
+    </Container>
     </div>
   );
 };
