@@ -84,6 +84,10 @@ const C3 = styled.div`
   }
 `;
 
+const StyledSection = styled.section`
+  background-color: black;
+`
+
 interface BannerProps {
   url: string;
   body: string;
@@ -103,7 +107,7 @@ const Banner: React.FunctionComponent<BannerProps> = ({
   subtitle,
   ctaText,
 }: any) => (
-  <section>
+  <StyledSection>
     <A>
       <A1 height={height}>
         <B>
@@ -172,7 +176,7 @@ const Banner: React.FunctionComponent<BannerProps> = ({
         </C>
       </A1>
     </A>
-  </section>
+  </StyledSection>
 );
 
 export default Banner;
