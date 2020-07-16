@@ -214,7 +214,8 @@ const index: React.SFC = () => {
 
 const MetaData = {
   title: 'Get in touch',
-  url: "www.coastalstay.co.uk/contact-us"
+  url: "www.coastalstay.co.uk/contact-us",
+  description: "There's a reason that Pembrokeshire camping is so popular, camping near the sea overlooking the coast. If this all sounds good, contact us before we are fully booked! "
 };
 
 export default withLayout(index, MetaData);

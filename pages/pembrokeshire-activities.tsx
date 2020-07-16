@@ -125,7 +125,8 @@ const index: React.SFC = () => {
 
 const MetaData = {
   title: 'Pembrokeshire Activites: What to do in Pembrokeshire?',
-  url: "www.coastalstay.co.uk/pembrokeshire-activites"
+  url: "www.coastalstay.co.uk/pembrokeshire-activites",
+  description: "Voted as one of the top campsites in the UK for adventure activities whether it’s adrenaline-fuelled, scenic coastal walks, or rich historic towns, its got the lot."
 };
 
 export default withLayout(index, MetaData);

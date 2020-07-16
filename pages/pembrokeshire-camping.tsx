@@ -275,7 +275,8 @@ const index: React.SFC = () => {
 
 const MetaData = {
   title: 'Pembrokeshire Camping',
-  url: "www.coastalstay.co.uk/pembrokeshire-camping"
+  url: "www.coastalstay.co.uk/pembrokeshire-camping",
+  description: "Pembrokeshire camping at a small secluded location with views overlooking the sea, near the beach and close to St Davids"
 };
 
 export default withLayout(index, MetaData);

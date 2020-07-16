@@ -1,5 +1,5 @@
 const Activities = {
-  f_1_1: `Our <a href="https://www.coastalstay.co.uk">pembrokeshire campsite</a> was voted as one of the top campsites in the UK for adventure activities and is a great base to visit the Pembrokeshire activities and attractions. Whether it’s adrenaline fuelled adventure activities, scenic coastal walks or rich historic towns, its got the lot.`,
+  f_1_1: `Our pembrokeshire campsite was voted as one of the top campsites in the UK for adventure activities and is a great base to visit the Pembrokeshire activities and attractions. Whether it’s adrenaline fuelled adventure activities, scenic coastal walks or rich historic towns, its got the lot.`,
 
   f_2_1: `The St Davids Cathedral dates back to the 12th century and has since been a popular place of pilgrimage. St David chose this beautiful region as the site of his monastery in the 6th century and you will find his shrine inside..`,
   f_2_2: `It is well worth setting aside a few hours to visit the cathedral, even if you don’t have an interest in history. There is an exhibition designed to introduce the pilgrim/visitor to the history and life of the Cathedral today including its daily worship..`,
