@@ -214,6 +214,7 @@ const index: React.SFC = () => {
 
 const MetaData = {
   title: 'Get in touch',
+  url: "www.coastalstay.co.uk/contact-us"
 };
 
 export default withLayout(index, MetaData);

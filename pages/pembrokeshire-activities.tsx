@@ -125,6 +125,7 @@ const index: React.SFC = () => {
 
 const MetaData = {
   title: 'Pembrokeshire Activites: What to do in Pembrokeshire?',
+  url: "www.coastalstay.co.uk/pembrokeshire-activites"
 };
 
 export default withLayout(index, MetaData);

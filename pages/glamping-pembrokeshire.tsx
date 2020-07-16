@@ -256,7 +256,8 @@ const index: React.SFC = () => {
 };
 
 const MetaData = {
-  title: 'Pembrokeshire Glamping: Bell Tent Coastal Stay',
+  title: 'Pembrokeshire Glamping: Bell Tent',
+  url: "www.coastalstay.co.uk/glamping-Pembrokeshire"
 };
 
 export default withLayout(index, MetaData);

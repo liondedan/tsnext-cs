@@ -1,2 +1,3 @@
 User-agent: *
 Disallow:
+Sitemap: https://www.coastalstay.co.uk/sitemap/sitemap.xml
