@@ -21,7 +21,7 @@ const Camping = {
   f_10_1: `Children and pets are more than welcome, we have onsite pets including a dog, kittens, goat and a pair of miniature horses, so the dog must be obedient and kept on a lead to avoid disrupting other campers. Care must be taken with younger children around the lake.`,
   f_10_2: `If you are looking for a hi-tech holiday park then we are probably not for you, but if you want your children to know how to build a den or forage for blackberries then we probably are.`,
   f_11_1: `An ideal and tranquil base for viewing the attractions of Pembrokeshire, yet only one a few miles from the shops, pubs and restaurants of St Davids.`,
-  f_11_2: `If this sounds like a campsite you’d be interested in, check out our <a href="https://www.coastalstay.co.uk/prices">camping prices</a> or get in touch.`,
+  f_11_2: `If this sounds like a campsite you’d be interested in, check out our <a href="https://www.coastalstay.co.uk/pricing">camping prices</a> or get in touch.`,
   f_12_1: `A few years back we added our own wood fired pizza oven so we could make food for friends and family - then we opened ocassionally to give pizza to campers...it went so well our pizza oven is now open every evening during the high season for take away`,
   f_13: `If you're looking for a twist of luxury, take a look at our fully catered <a href="https://www.coastalstay.co.uk/glamping-pembrokeshire">glamping bell tent</a>. They are furnished with everything you need, double bed, cooking equipment, towels and we can even bring coffee to you in bed in the morning.`,
 };

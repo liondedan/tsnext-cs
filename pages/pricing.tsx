@@ -85,7 +85,9 @@ const index: React.SFC = () => {
 };
 
 const MetaData = {
-  title: 'Pembrokeshire Camping',
+  title: 'Camping Prices: Coastal Stay',
+  url: "www.coastalstay.co.uk",
+  description: "There is a reason that Pembrokeshire camping is so popular, camping near the sea overlooking the coast. If this all sounds good, contact us before we are fully booked!"
 };
 
 export default withLayout(index, MetaData);
