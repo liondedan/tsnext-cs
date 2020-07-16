@@ -147,6 +147,7 @@ const ButtonAppBar: React.SFC = ({}) => {
               <Logo
                 style={{ height: 50 }}
                 src="coastal-stay-logo-white-min.png"
+                alt="coastal stay pembrokeshire camping"
               />
             </Link>
           </LogoWrap>
