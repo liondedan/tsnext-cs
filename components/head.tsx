@@ -17,7 +17,7 @@ const Meta: React.SFC<MetaProps> = ({ title, description, image, url }) => (
   <Head>
     <title>{title}</title>
     <meta property="keywords" content={title || defaultSEO.title} />
-    <meta name="description" content={description || defaultSEO.description} />
+    <meta property="description" content={description || defaultSEO.description} />
     <meta property="og:title" content={title || defaultSEO.title} />
     <meta property="og:site_name" content="Coastal Stay" />
     <meta
