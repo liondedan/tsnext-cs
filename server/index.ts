@@ -4,7 +4,6 @@ const nextFrame = require('next');
 const url = require('url');
 const forceDomain = require('forcedomain');
 require('dotenv').config();
-import { connectDb } from './models';
 import routes from './routes';
 import sgMail from '@sendgrid/mail';
 import basicContact from './emailTpl/basicContact';
@@ -68,23 +67,23 @@ nextApp.prepare().then(() => {
       });
   });
 
-  server.get('/feed', ({res}: any) => {
+  server.get('/feed', ({ res }: any) => {
     res.redirect(301, '/');
   });
 
-  server.get('/price', ({res}: any) => {
+  server.get('/price', ({ res }: any) => {
     res.redirect(301, '/pricing');
   });
 
-  server.get('/contact', ({res}: any) => {
+  server.get('/contact', ({ res }: any) => {
     res.redirect(301, '/contact-us');
   });
 
-  server.get('/bell-tent-glamping', ({res}: any) => {
+  server.get('/bell-tent-glamping', ({ res }: any) => {
     res.redirect(301, '/glamping-pembrokeshire');
   });
 
-  server.get('/pembrokeshire-camping-coastal', ({res}: any) => {
+  server.get('/pembrokeshire-camping-coastal', ({ res }: any) => {
     res.redirect(301, '/pembrokeshire-camping');
   });
 
@@ -95,10 +94,8 @@ nextApp.prepare().then(() => {
   });
 
   // Connect to DB and seed with fake data
-  connectDb().then(async () => {
-    server.listen(port, () => {
-      // tslint:disable-next-line:no-console
-      console.log(`server started at http://localhost:${port}`);
-    });
+  server.listen(port, () => {
+    // tslint:disable-next-line:no-console
+    console.log(`server started at http://localhost:${port}`);
   });
 });
