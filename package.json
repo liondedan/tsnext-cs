@@ -47,7 +47,7 @@
     "mongoose": "^5.7.10",
     "next": "^9.4.5-canary.34",
     "next-fonts": "^1.0.3",
-    "node-fetch": "^2.6.0",
+    "node-fetch": "^2.6.1",
     "react": "^16.12.0",
     "react-dom": "^16.12.0",
     "react-hook-form": "^4.9.3",
