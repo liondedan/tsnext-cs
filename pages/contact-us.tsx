@@ -10,6 +10,8 @@ import Grid from '@material-ui/core/Grid';
 import Button from '@material-ui/core/Button';
 import { Booking } from '../types';
 import TextField from '@material-ui/core/TextField';
+import InputLabel from '@material-ui/core/InputLabel';
+import Select from '@material-ui/core/Select';
 import Typography from '@material-ui/core/Typography';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 // @ts-ignore
@@ -87,8 +89,9 @@ const index: React.SFC = () => {
               variant="body1"
               component="h5"
             >
-              Fill out the form below to check our availability or for any
-              additional questions
+              Fill out the form below to check our availability. Please provide
+              as much information about your booking as possible e.g number of
+              guests, the type of setup you have
             </Typography>
             {success && (
               <Typography
@@ -134,16 +137,35 @@ const index: React.SFC = () => {
                     variant="outlined"
                   />
                 </Grid>
+                <Grid item xs={12}>
+                  <InputLabel htmlFor="pitchSetup">Pitch Setup</InputLabel>
+                  <Select
+                    native
+                    id="pitchSetup"
+                    name="pitchSetup"
+                    className={classes.input}
+                    inputRef={register({
+                      required: true,
+                    })}
+                  >
+                    <option aria-label="None" value="" />
+                    <option value="Small Tent">Small Tent</option>
+                    <option value="Large Tent">Large Tent</option>
+                    <option value="Van">Van</option>
+                    <option value="Motorhome">Motorhome</option>
+                    <option value="Caravan">Caravan</option>
+                  </Select>
+                </Grid>
                 <Grid container>
                   <Grid item xs={6}>
                     <TextField
                       type="date"
                       style={{ width: '85%' }}
-                      id="startDate"
+                      id="arrivalDate"
                       inputRef={register}
                       className={classes.input}
-                      name="startDate"
-                      label="Start Date"
+                      name="arrivalDate"
+                      label="Arrival Date"
                       variant="outlined"
                       defaultValue={today}
                     />
@@ -152,11 +174,11 @@ const index: React.SFC = () => {
                     <TextField
                       className={classes.input}
                       type="date"
-                      id="endDate"
+                      id="departureDate"
                       inputRef={register}
-                      name="endDate"
+                      name="departureDate"
                       defaultValue={today}
-                      label="End Date"
+                      label="Departure Date"
                       variant="outlined"
                       style={{ width: '85%' }}
                     />
@@ -214,8 +236,9 @@ const index: React.SFC = () => {
 
 const MetaData = {
   title: 'Get in touch',
-  url: "www.coastalstay.co.uk/contact-us",
-  description: "There's a reason that Pembrokeshire camping is so popular, camping near the sea overlooking the coast. If this all sounds good, contact us before we are fully booked! "
+  url: 'www.coastalstay.co.uk/contact-us',
+  description:
+    "There's a reason that Pembrokeshire camping is so popular, camping near the sea overlooking the coast. If this all sounds good, contact us before we are fully booked! ",
 };
 
 export default withLayout(index, MetaData);

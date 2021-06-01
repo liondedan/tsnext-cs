@@ -2,20 +2,23 @@ export interface ContactProps {
   fullName: string;
   message: string;
   emailAddress: string;
-  endDate: number;
-  startDate: number;
+  pitchSetup: string;
+  departureDate: Date;
+  arrivalDate: Date;
 }
 
 const basicContact = ({
   fullName,
   emailAddress,
-  startDate,
-  endDate,
+  arrivalDate,
+  departureDate,
   message,
+  pitchSetup,
 }: ContactProps) => `
 <h5>${fullName}<h5>
 <h5>${emailAddress}<h5>
-<p>${startDate} - ${endDate}<p>
+<h5>${pitchSetup}<h5>
+<p>${arrivalDate} - ${departureDate}<p>
 <p>${message}<p>
 `;
 
