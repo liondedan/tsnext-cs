@@ -240,21 +240,31 @@ const index: React.SFC = () => {
                     defaultValue: 1,
                     label: 'Adults',
                     type: 'number',
-                    mobileWidth: 6,
-                    desktopWidth: 6,
+                    mobileWidth: 4,
+                    desktopWidth: 4,
                     id: 'adults',
                     inputRef: register({
                       required: true,
                     }),
                   })}
-
                   {generateInput({
                     defaultValue: 0,
                     label: 'Children',
-                    mobileWidth: 6,
-                    desktopWidth: 6,
+                    mobileWidth: 4,
+                    desktopWidth: 4,
                     type: 'number',
                     id: 'children',
+                    inputRef: register({
+                      required: false,
+                    }),
+                  })}
+                  {generateInput({
+                    defaultValue: 0,
+                    label: 'Infants',
+                    mobileWidth: 4,
+                    desktopWidth: 4,
+                    type: 'number',
+                    id: 'infants',
                     inputRef: register({
                       required: false,
                     }),

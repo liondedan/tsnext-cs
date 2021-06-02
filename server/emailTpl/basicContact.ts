@@ -9,7 +9,7 @@ export interface ContactProps {
   children: number;
   infants: number;
   dogs: number;
-  hookup: number;
+  hookUp: number;
 }
 
 let title = (value: any) => {
@@ -37,7 +37,7 @@ const basicContact = ({
   children,
   infants,
   dogs,
-  hookup,
+  hookUp,
 }: ContactProps) => `
 ${title('Name')}
 ${body(fullName)}
@@ -70,7 +70,7 @@ ${title('Dogs')}
 ${body(dogs)}
 
 ${title('Hook Up')}
-${body(hookup)}
+${body(hookUp)}
 
 `;
 
