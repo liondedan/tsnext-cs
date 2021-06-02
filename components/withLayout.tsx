@@ -3,13 +3,13 @@ import Head from './head';
 import Footer from './footer';
 import { MetaProps } from '../types';
 
-const withLayout = (Page: any, meta: MetaProps) => {
+const withLayout = (Page: any, meta: MetaProps, hideFooterContent = false) => {
   return () => (
     <main>
       <Head {...meta} />
       <Header />
       <Page />
-      <Footer />
+      <Footer hideFooterContent={hideFooterContent} />
     </main>
   );
 };

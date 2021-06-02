@@ -85,7 +85,7 @@ const C3 = styled.div`
 
 const StyledSection = styled.section`
   background-color: black;
-`
+`;
 
 interface BannerProps {
   url: string;
