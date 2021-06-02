@@ -5,7 +5,26 @@ export interface ContactProps {
   pitchSetup: string;
   departureDate: Date;
   arrivalDate: Date;
+  adults: number;
+  children: number;
+  infants: number;
+  dogs: number;
+  hookup: number;
 }
+
+let title = (value: any) => {
+  return `<h4 style="
+    margin-bottom: 5px;
+">
+${value}: <
+</h4>`;
+};
+
+let body = (value: any) => {
+  return `<p style="
+    margin-top: 0px;
+">${value}</p>`;
+};
 
 const basicContact = ({
   fullName,
@@ -14,12 +33,45 @@ const basicContact = ({
   departureDate,
   message,
   pitchSetup,
+  adults,
+  children,
+  infants,
+  dogs,
+  hookup,
 }: ContactProps) => `
-<h5>${fullName}<h5>
-<h5>${emailAddress}<h5>
-<h5>${pitchSetup}<h5>
-<p>${arrivalDate} - ${departureDate}<p>
-<p>${message}<p>
+${title('Name')}
+${body(fullName)}
+
+${title('Email')}
+${body(emailAddress)}
+
+${title('Message')}
+${body(message)}
+
+${title('Arrival Date')}
+${body(arrivalDate)}
+
+${title('Departure Date')}
+${body(departureDate)}
+
+${title('Pitch Setup')}
+${body(pitchSetup)}
+
+${title('Adults')}
+${body(adults)}
+
+${title('Children')}
+${body(children)}
+
+${title('Infants')}
+${body(infants)}
+
+${title('Dogs')}
+${body(dogs)}
+
+${title('Hook Up')}
+${body(hookup)}
+
 `;
 
 export default basicContact;
