@@ -16,7 +16,7 @@ let title = (value: any) => {
   return `<h4 style="
     margin-bottom: 5px;
 ">
-${value}: <
+${value}:
 </h4>`;
 };
 
