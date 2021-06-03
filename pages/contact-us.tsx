@@ -46,6 +46,53 @@ const index: React.SFC = () => {
   const { errors, register, handleSubmit } = useForm<Booking>();
   const today = format(new Date(), 'yyyy-MM-dd');
 
+  interface Input {
+    label: string;
+    id: string;
+    inputRef?: any;
+    errorMessage?: string;
+    type?: 'text' | 'date' | 'number';
+    defaultValue?: any;
+    style?: any;
+    props?: any;
+    mobileWidth?: 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 | 11 | 12;
+    desktopWidth?: 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 | 11 | 12;
+  }
+
+  const generateInput = ({
+    defaultValue = '',
+    type = 'text',
+    label,
+    id,
+    inputRef,
+    errorMessage,
+    style,
+    props,
+    mobileWidth = 12,
+    desktopWidth = 12,
+  }: Input) => {
+    return (
+      <Grid item xs={mobileWidth} md={desktopWidth}>
+        <TextField
+          style={{ ...style }}
+          type={type}
+          id={id}
+          className={classes.input}
+          inputRef={inputRef}
+          defaultValue={defaultValue}
+          name={id}
+          label={label}
+          variant="outlined"
+          // @ts-ignore
+          error={errors[id] ? true : false}
+          // @ts-ignore
+          helperText={errors[id] ? errorMessage : null}
+          {...props}
+        />
+      </Grid>
+    );
+  };
+
   const PORT = process.env.NODE_ENV == 'development' ? 3000 : process.env.PORT;
   console.log(PORT);
   console.log(process.env.PORT);
@@ -89,9 +136,7 @@ const index: React.SFC = () => {
               variant="body1"
               component="h5"
             >
-              Fill out the form below to check our availability. Please provide
-              as much information about your booking as possible e.g number of
-              guests, the type of setup you have
+              Fill out the booking form below to find out our availability.
             </Typography>
             {success && (
               <Typography
@@ -107,83 +152,151 @@ const index: React.SFC = () => {
 
             {!success && (
               <form className={classes.root} noValidate onSubmit={onSubmit}>
-                <Grid item xs={12}>
-                  <TextField
-                    id="fullName"
-                    className={classes.input}
-                    inputRef={register({ required: true })}
-                    name="fullName"
-                    label="Full Name"
-                    variant="outlined"
-                    required
-                    error={errors.firstName ? true : false}
-                  />
-                </Grid>
-                <Grid item xs={12}>
-                  <TextField
-                    className={classes.input}
-                    id="email"
-                    inputRef={register({
-                      required: true,
-                      pattern: {
-                        value: /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i,
-                        message: 'invalid email address',
-                      },
-                    })}
-                    error={errors.email ? true : false}
-                    required
-                    name="emailAddress"
-                    label="Email Address"
-                    variant="outlined"
-                  />
-                </Grid>
-                <Grid item xs={12}>
-                  <InputLabel htmlFor="pitchSetup">Pitch Setup</InputLabel>
-                  <Select
-                    native
-                    id="pitchSetup"
-                    name="pitchSetup"
-                    className={classes.input}
-                    inputRef={register({
-                      required: true,
-                    })}
-                  >
-                    <option aria-label="None" value="" />
-                    <option value="Small Tent">Small Tent</option>
-                    <option value="Large Tent">Large Tent</option>
-                    <option value="Van">Van</option>
-                    <option value="Motorhome">Motorhome</option>
-                    <option value="Caravan">Caravan</option>
-                  </Select>
-                </Grid>
-                <Grid container>
-                  <Grid item xs={6}>
+                <Grid spacing={2} container style={{ margin: '0px' }}>
+                  <Grid item xs={12}>
                     <TextField
-                      type="date"
-                      style={{ width: '85%' }}
-                      id="arrivalDate"
-                      inputRef={register}
+                      id="fullName"
                       className={classes.input}
-                      name="arrivalDate"
-                      label="Arrival Date"
+                      inputRef={register({ required: true })}
+                      name="fullName"
+                      label="Full Name"
                       variant="outlined"
-                      defaultValue={today}
+                      required
+                      error={errors.firstName ? true : false}
                     />
                   </Grid>
-                  <Grid item xs={6}>
+                  <Grid item xs={12}>
                     <TextField
                       className={classes.input}
-                      type="date"
-                      id="departureDate"
-                      inputRef={register}
-                      name="departureDate"
-                      defaultValue={today}
-                      label="Departure Date"
+                      id="email"
+                      inputRef={register({
+                        required: true,
+                        pattern: {
+                          value: /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i,
+                          message: 'invalid email address',
+                        },
+                      })}
+                      error={errors.email ? true : false}
+                      required
+                      name="emailAddress"
+                      label="Email Address"
                       variant="outlined"
-                      style={{ width: '85%' }}
                     />
                   </Grid>
                 </Grid>
+
+                <Grid spacing={2} container style={{ margin: '0px' }}>
+                  <Grid item xs={12}>
+                    <InputLabel htmlFor="pitchSetup">Pitch Setup</InputLabel>
+                    <Select
+                      native
+                      id="pitchSetup"
+                      name="pitchSetup"
+                      className={classes.input}
+                      inputRef={register({
+                        required: true,
+                      })}
+                    >
+                      <option aria-label="None" value="" />
+                      <option value="Small Tent">Small Tent</option>
+                      <option value="Large Tent">Large Tent</option>
+                      <option value="Van">Van</option>
+                      <option value="Motorhome">Motorhome</option>
+                      <option value="Caravan">Caravan</option>
+                    </Select>
+                  </Grid>
+                </Grid>
+
+                <Grid spacing={2} container style={{ margin: '0px' }}>
+                  {generateInput({
+                    errorMessage: 'Please select an arrival date',
+                    label: 'Arrival Date',
+                    type: 'date',
+                    mobileWidth: 6,
+                    defaultValue: today,
+                    desktopWidth: 6,
+                    id: 'arrivalDate',
+                    inputRef: register({
+                      required: true,
+                    }),
+                  })}
+
+                  {generateInput({
+                    label: 'Departure Date',
+                    mobileWidth: 6,
+                    desktopWidth: 6,
+                    type: 'date',
+                    defaultValue: today,
+                    id: 'departureDate',
+                    inputRef: register({
+                      required: false,
+                    }),
+                  })}
+                </Grid>
+
+                <Grid spacing={2} container style={{ margin: '0px' }}>
+                  {generateInput({
+                    errorMessage: 'Please select a number of adults',
+                    defaultValue: 1,
+                    label: 'Adults',
+                    type: 'number',
+                    mobileWidth: 4,
+                    desktopWidth: 4,
+                    id: 'adults',
+                    inputRef: register({
+                      required: true,
+                    }),
+                  })}
+                  {generateInput({
+                    defaultValue: 0,
+                    label: 'Children',
+                    mobileWidth: 4,
+                    desktopWidth: 4,
+                    type: 'number',
+                    id: 'children',
+                    inputRef: register({
+                      required: false,
+                    }),
+                  })}
+                  {generateInput({
+                    defaultValue: 0,
+                    label: 'Infants',
+                    mobileWidth: 4,
+                    desktopWidth: 4,
+                    type: 'number',
+                    id: 'infants',
+                    inputRef: register({
+                      required: false,
+                    }),
+                  })}
+                </Grid>
+
+                <Grid spacing={2} container style={{ margin: '0px' }}>
+                  {generateInput({
+                    defaultValue: 0,
+                    type: 'number',
+                    mobileWidth: 6,
+                    desktopWidth: 6,
+                    label: 'Dogs',
+                    id: 'dogs',
+                    inputRef: register({
+                      required: false,
+                    }),
+                  })}
+
+                  {generateInput({
+                    defaultValue: 0,
+                    type: 'number',
+                    mobileWidth: 6,
+                    desktopWidth: 6,
+                    label: 'Hook Up',
+                    id: 'hookUp',
+                    inputRef: register({
+                      required: false,
+                    }),
+                  })}
+                </Grid>
+
                 <Grid item xs={12}>
                   <TextField
                     multiline
